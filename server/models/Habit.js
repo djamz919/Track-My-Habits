@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const daySchema = require('./Day');
 const dateFormat = require('../utils/dateFormat');
 
 const habitSchema = new Schema(
@@ -17,7 +18,8 @@ const habitSchema = new Schema(
       username: {
         type: String,
         required: true
-      }
+      },
+      days: [daySchema] 
       
     },
     {
@@ -27,9 +29,9 @@ const habitSchema = new Schema(
     }
   );
   
-//   habitSchema.virtual('reactionCount').get(function() {
-//     return this.reactions.length;
-//   });
+  habitSchema.virtual('daysCount').get(function() {
+    return this.days.length;
+  });
   
   const Habit = model('Habit', habitSchema);
   
