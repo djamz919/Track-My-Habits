@@ -6,6 +6,8 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
+    habits: [Habit]
+    habitCount: Int
   }
 
   type Habit {
@@ -13,6 +15,15 @@ const typeDefs = gql`
     habitText: String
     createdAt: String
     username: String
+    days: [Day]
+    daysCount: Int
+  }
+
+  type Day {
+    _id: ID
+    day: Int
+    completion: Boolean
+    log: String
   }
   
   type Query {
@@ -31,7 +42,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addHabit(habitText: String): Habit
+    addHabit(habitText: String!): Habit
   }
 `;
 
