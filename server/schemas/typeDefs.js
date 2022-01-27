@@ -13,16 +13,23 @@ const typeDefs = gql`
     habitText: String
     createdAt: String
     username: String
-
   }
+  
   type Query {
     users: [User]
     user(username: String!): User
     habits(username: String): [Habit]
     habit(habitText: String): Habit
   }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): User
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     newHabit(habitText: String): Habit
   }
 `;
