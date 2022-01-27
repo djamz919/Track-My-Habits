@@ -16,6 +16,7 @@ const typeDefs = gql`
   }
   
   type Query {
+    me: User
     users: [User]
     user(username: String!): User
     habits(username: String): [Habit]
@@ -30,7 +31,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    newHabit(habitText: String): Habit
+    addHabit(habitText: String): Habit
   }
 `;
 
