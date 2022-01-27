@@ -19,7 +19,13 @@ const userSchema = new Schema(
       type: String,
       required: true,
       minlength: 5
-    }
+    },
+    habits: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Habit'
+      }
+    ]
    
   },
   
@@ -44,6 +50,10 @@ userSchema.pre('save', async function(next) {
 userSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual('habitCount').get(function() {
+  return this.habits.length;
+});
 
 const User = model('User', userSchema);
 
