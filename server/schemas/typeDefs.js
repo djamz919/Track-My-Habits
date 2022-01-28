@@ -15,7 +15,7 @@ const typeDefs = gql`
     habitText: String
     createdAt: String
     username: String
-    days: [daySchema]
+    days: [Day]
     daysCount: Int
   }
 
@@ -43,7 +43,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addHabit(habitText: String!): Habit
-    
+    addLog(log: String): Day
+    addDay(day: Int!, completion: Boolean!): Day
   }
 `;
 
