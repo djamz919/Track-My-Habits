@@ -6,8 +6,8 @@ const Signup = (props) => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
-          <h4 className="card-header">Sign Up</h4>
           <div className="card-body">
+          <h4>Sign Up</h4>
             <form>
               <input
                 className="form-input"
@@ -29,14 +29,14 @@ const Signup = (props) => {
               />
               <input
                 className="form-input"
-                placeholder="******"
+                placeholder="Your password"
                 name="password"
                 type="password"
                 id="password"
                 //value={formState.password}
                 //onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
+              <button className="submit-button" type="submit">
                 Submit
               </button>
             </form>
