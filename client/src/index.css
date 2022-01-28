@@ -1,28 +1,44 @@
 :root {
-  --blue: #234E70;
-  --light-yellow: #FBF8BE;
+  --gray: #CCCCCC;
+  --black: #000000;
+  --blue: #59A5D8;
+  --dark-blue: #133C55;
 }
 
 * {
   box-sizing: border-box;
 }
 
+a {
+  color: var(--dark-blue);
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+a:hover {
+  color: var(--blue);
+}
+
 html,
 body {
-  min-height: 100%;
+  font-family: 'Inconsolata', monospace;
+  background-repeat: no-repeat;
 }
 
 .header {
+  font-size: 35px;
   display: flex;
   justify-content: center;
-  background-color: var(--blue);
-  color: white;
+  color: var(--black);
+  background-color: var(--gray);
+  border-bottom: 1px solid black;
 }
 
 .card-body {
-  background-color: var(--light-yellow);
-  padding: 50px;
-  margin-top: 10px;
+  font-size: 30px;
+  color: var(--black);
 }
 
 .card, .card-body, form {
@@ -33,11 +49,28 @@ body {
   flex-direction: column;
 }
 
-.form-input, .submit-button {
+.form-input, .button {
   margin-bottom: 10px;
 }
 
-.submit-button {
-  background-color: var(--blue);
-  color: white;
+.button {
+display:inline-block;
+padding:0.7em 1.4em;
+margin:0 0.3em 0.3em 0;
+border-radius:0.15em;
+box-sizing: border-box;
+text-decoration:none;
+text-transform:uppercase;
+font-family: 'Inconsolata', monospace;
+font-weight:400;
+color: var(--black);
+background-color: var(--blue);
+box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+text-align:center;
+position:relative;
+}
+
+.button:hover {
+  background-color: var(--dark-blue);
+  color: var(--gray);
 }
