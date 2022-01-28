@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {useQuery} from '@apollo/client';
+import {ALL_USERS} from '../utils/queries'
 
 const Login = (props) => {
+
+  const { loading, data } = useQuery(ALL_USERS);
+
+  const users = data?.users || [];
+  console.log(users);
   return(
     <main>
       <div>
