@@ -15,7 +15,7 @@ const typeDefs = gql`
     habitText: String
     createdAt: String
     username: String
-    days: [daySchema]
+    days: [Day]
     daysCount: Int
   }
 
