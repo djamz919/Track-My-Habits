@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --blue: #234E70;
+  --light-yellow: #FBF8BE;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: var(--blue);
+  color: white;
+}
+
+.card-body {
+  background-color: var(--light-yellow);
+  padding: 50px;
+  margin-top: 10px;
+}
+
+.card, .card-body, form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.form-input, .submit-button {
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  background-color: var(--blue);
+  color: white;
 }

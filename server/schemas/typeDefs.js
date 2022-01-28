@@ -43,8 +43,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addHabit(habitText: String!): Habit
-    addLog(logId: ID!, log: String): Day
-    addDay(dayId: ID! day: Int!, completion: Boolean!): Day
+    
   }
 `;
 
