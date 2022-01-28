@@ -36,7 +36,7 @@ const Signup = (props) => {
                 //value={formState.password}
                 //onChange={handleChange}
               />
-              <button className="submit-button" type="submit">
+              <button className="button" type="submit">
                 Submit
               </button>
             </form>
