@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Habit } = require('../models');
+const { User, Habit, Day } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,17 +8,18 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('thoughts')
-          .populate('friends');
+          // .populate('habits')
+          
 
         return userData;
       }
 
       throw new AuthenticationError('Not logged in');
     },
-    users: async () => {
+    users: async (context) => {
+      console.log(context)
       return User.find().select('-__v -password')
-
+      
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
@@ -66,6 +67,28 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    //not sure if this will work honestly because I(dan) cannot make habits in graphql for some dumb reason
+    //need to add context.username, and test context.username
+    addDay: async (parent, {dayId, completion}) => {
+     //if(context.user) || context.user.habit??????? {
+      const newDay = await Habit.findoneAndUpdate(
+        {_id: dayId},
+        {$push: {days: {completion}} },
+        //habit: context.user.habit._id?????
+        {new: true}
+      );
+      return newDay
+    // }
+    // throw new AuthenticationError('problem problem problem');
+    },
+    addLog: async (parent, {dayId, log}) => {
+      const newLog = await Habit.findOneAndUpdate(
+        {_id: dayId},
+        { $push: {log: {log}}}
+      );
+      return newLog
+    }
   }
 };
 
