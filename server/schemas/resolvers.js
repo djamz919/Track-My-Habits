@@ -1,4 +1,3 @@
-
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Habit } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -10,7 +9,6 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
           // .populate('habits')
-          
 
         return userData;
       }
@@ -19,12 +17,11 @@ const resolvers = {
     },
     users: async (context) => {
       console.log(context)
-      return User.find().select('-__v -password')
-      
+      return User.find().select('-__v -password');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-
+      return User.find().select('-__v -password');
     },
     habits: async () => {
       return Habit.find();
@@ -71,25 +68,19 @@ const resolvers = {
 
     //not sure if this will work honestly because I(dan) cannot make habits in graphql for some dumb reason
     //need to add context.username, and test context.username
-    addDay: async (parent, {dayId, completion}, context) => {
+    addDay: async (parent, {habitId, completion, log, day}, context) => {
      if(context.user) {
        //idk cause I can't make habits lol
       const newDay = await Habit.findOneAndUpdate(
-        {_id: dayId},
-        {$push: {days: {completion, username: context.user.username}} },
+        {_id: habitId},
+        {$push: {days: {completion, log, day}} },
         //habit: context.user.habit._id?????
         {new: true}
       );
+      // if habit.day.length === 21
       return newDay
     }
     throw new AuthenticationError('problem problem problem');
-    },
-    addLog: async (parent, {dayId, log}, context) => {
-      const newLog = await Habit.findOneAndUpdate(
-        {_id: dayId},
-        { $push: {log: {log}}}
-      );
-      return context
     }
   }
 };

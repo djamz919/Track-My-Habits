@@ -17,6 +17,14 @@ import { gql } from '@apollo/client';
 //     }
 // }
 // `;
+export const GET_HABITS =gql `
+
+
+`;
+
+export const GET_DAYS = `
+
+`;
 
 export const ALL_USERS = gql `
 {

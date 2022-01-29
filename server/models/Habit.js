@@ -19,6 +19,11 @@ const habitSchema = new Schema(
         type: String,
         required: true
       },
+      completedMonth: {
+        type: Boolean,
+        default: false,
+        required: true
+      },
       days: [daySchema] 
       
     },
