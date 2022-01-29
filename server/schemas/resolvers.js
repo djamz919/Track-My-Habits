@@ -71,24 +71,25 @@ const resolvers = {
 
     //not sure if this will work honestly because I(dan) cannot make habits in graphql for some dumb reason
     //need to add context.username, and test context.username
-    addDay: async (parent, {dayId, completion}) => {
-     //if(context.user) || context.user.habit??????? {
-      const newDay = await Habit.findoneAndUpdate(
+    addDay: async (parent, {dayId, completion}, context) => {
+     if(context.user) {
+       //idk cause I can't make habits lol
+      const newDay = await Habit.findOneAndUpdate(
         {_id: dayId},
-        {$push: {days: {completion}} },
+        {$push: {days: {completion, username: context.user.username}} },
         //habit: context.user.habit._id?????
         {new: true}
       );
       return newDay
-    // }
-    // throw new AuthenticationError('problem problem problem');
+    }
+    throw new AuthenticationError('problem problem problem');
     },
-    addLog: async (parent, {dayId, log}) => {
+    addLog: async (parent, {dayId, log}, context) => {
       const newLog = await Habit.findOneAndUpdate(
         {_id: dayId},
         { $push: {log: {log}}}
       );
-      return newLog
+      return context
     }
   }
 };
