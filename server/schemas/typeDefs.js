@@ -31,7 +31,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     habits(username: String): [Habit]
-    habit(habitText: String): Habit
+    habit(_id: ID): Habit
   }
 
   type Auth {

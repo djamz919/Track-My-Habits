@@ -21,10 +21,14 @@ const resolvers = {
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-      return User.find().select('-__v -password');
+      .select('-__v -password');
+      
     },
     habits: async () => {
       return Habit.find();
+    },
+    habit: async (parent, {_id}) => {
+      return Habit.findOne({ _id: id})
     }
   },
   Mutation: {
