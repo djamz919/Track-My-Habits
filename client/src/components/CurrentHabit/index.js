@@ -1,11 +1,11 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import Day from '../components/Day';
 import { Link } from 'react-router-dom';
 
-const SingleHabit = () => {
+const HabitPage = (props) => {
     return (
     <div>placeholder</div>
     )
 }
 
-export default SingleHabit;
+export default HabitPage;

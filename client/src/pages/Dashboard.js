@@ -17,22 +17,43 @@ const Dashboard = () => {
             createdAt: "12:00 PM",
             username: "Testuser",
             days: "1"
+        },
+        {
+            id: 3,
+            habitText: "Test habit",
+            createdAt: "12:00 PM",
+            username: "Testuser",
+            days: "1"
         }
     ]
 
+
+    function GoToHabit() {
+        console.log("Clicked!");
+    }
+
     return (
-        <section className='user-habits'>
+        <main className='dashboard'>
             <h1 className='page-title'>Dashboard</h1>
-            {habits.length > 0 && habits.map((habits) => (
-                <HabitCard 
-                key={habits.id}
-                habitText={habits.habitText}
-                createdAt={habits.createdAt}
-                username={habits.username}
-                days={habits.days}
-                />
-            ))}
-        </section>
+            <section className='user-habits'>
+                {habits.length > 0 && habits.map((habits) => (
+                    <HabitCard
+                        key={habits.id}
+                        NavigateToHabit = {GoToHabit}
+                        habitText={habits.habitText}
+                        createdAt={habits.createdAt}
+                        username={habits.username}
+                        days={habits.days}
+                    />
+                ))}
+            </section>
+            <section className='new-habit-button'>
+                    <button>Click here to start a new habit!</button>
+            </section>
+            <section className='habit-info'>
+
+            </section>
+        </main>
     )
 }
 

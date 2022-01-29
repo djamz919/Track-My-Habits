@@ -79,3 +79,22 @@ position:relative;
   display: flex;
   justify-content: center;
 }
+
+.user-habits {
+  display: flex;
+  flex-direction: row;
+}
+
+.habit-card {
+  background-color: var(--gray);
+  border-radius: 5px;
+  max-width: 20%;
+  margin: 50px auto;
+  padding: 15px;
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: var(--black);
+}
