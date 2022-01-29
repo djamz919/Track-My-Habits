@@ -1,4 +1,3 @@
-
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Habit } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -10,7 +9,6 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
           // .populate('habits')
-          
 
         return userData;
       }
@@ -19,12 +17,11 @@ const resolvers = {
     },
     users: async (context) => {
       console.log(context)
-      return User.find().select('-__v -password')
-      
+      return User.find().select('-__v -password');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-
+      return User.find().select('-__v -password');
     },
     habits: async () => {
       return Habit.find();
