@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route, Routes, Switch, Link } from 'react-rout
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
+import SingleHabit from './pages/HabitPage';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -36,6 +37,7 @@ function App() {
             <Route path='/' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/single-habit' element={<SingleHabit />} />
           </Routes>
         </div>
         <Footer />
