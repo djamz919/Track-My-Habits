@@ -10,7 +10,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {useQuery} from '@apollo/client';
 import {HABITS, ALL_USERS} from './utils/queries'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Switch, Link } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
