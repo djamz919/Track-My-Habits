@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Dashboard = () => {
  return (
      <main>
-         <h1>
+         <h1 className='page-title'>
              Dashboard
          </h1>
      </main>
