@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react';
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Day from '../Day';
 
@@ -28,6 +28,28 @@ const HabitTracker = (props) => {
         },
     ]
 
+        const [count, setCount] = useState(1);
+
+        function decrementCount() {
+            setCount(previousCount => {
+                if(previousCount > 1)
+                {
+                    return(previousCount - 1 )
+                }
+                return previousCount;
+            })
+        }
+
+        function incrementCount() {
+            setCount(previousCount => {
+                if(previousCount < 3)
+                {
+                    return(previousCount + 1 )
+                }
+                return previousCount;
+            })
+        }
+
     return (
         <section className='habit-card'>
             <div className='habit-options'>
@@ -42,28 +64,23 @@ const HabitTracker = (props) => {
                     </button>
                 </div>
             </div>
+            <div className='week-number'>Week {count}</div>
             <div className='habit-calendar'>
-                <div className='week-1'>
+                <div className='week'>
                     {dayInfo.map((dayInfo) => (
-                        <div id={'week-1-day' + dayInfo.id} className='day' key={dayInfo.id}>
-                            <Day></Day>
+                        <div id={'day' + dayInfo.id} className='day' key={dayInfo.id}>
+                            <Day habitDay={dayInfo.id}></Day>
                         </div>
                     ))}
                 </div>
-                <div className='week-2'>
-                    {dayInfo.map((dayInfo) => (
-                        <div id={'week-2-day' + dayInfo.id} className='day' key={dayInfo.id}>
-                            <Day></Day>
-                        </div>
-                    ))}
-                </div>
-                <div className='week-3'>
-                    {dayInfo.map((dayInfo) => (
-                        <div id={'week-3-day' + dayInfo.id} className='day'  key={dayInfo.id}>
-                            <Day></Day>
-                        </div>
-                    ))}
-                </div>
+            </div>
+            <div className='nav-buttons'>
+                <button className='back-button' onClick={decrementCount}>
+                    Last Week
+                </button>
+                <button className='next-button' onClick={incrementCount}>
+                    Next Week
+                </button>
             </div>
         </section>
     )
