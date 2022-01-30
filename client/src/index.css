@@ -141,7 +141,7 @@ margin-left: 50px;
 } */
 
 @media (min-width:1024px) {
-  .week {
+  .tracked-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 80px 80px 80px;
@@ -151,7 +151,7 @@ margin-left: 50px;
 }
 
 @media (max-width:1023px) {
-  .week {
+  .tracked-days {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(7, 80px);

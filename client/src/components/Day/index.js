@@ -1,4 +1,5 @@
 import React from 'react';
+import { ADD_DAY } from '../../utils/mutations';
 
 const Day = (props) => {
     return (

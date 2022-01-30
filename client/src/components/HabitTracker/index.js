@@ -1,5 +1,4 @@
 import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Day from '../Day';
 
 const HabitTracker = (props) => {
@@ -101,13 +100,11 @@ const HabitTracker = (props) => {
                     <div className='habit-days'>Current Streak: {props.days} day(s)</div>
                 </div>
                 <div className='button-div'>
-                    <button className='habit-button' onClick={props.UpdateHabit}>
-                        Update Habit
-                    </button>
+                    <button className='habit-button' onClick={props.UpdateHabit}>Update Habit</button>
                 </div>
             </div>
             <div className='habit-calendar'>
-                <div className='week'>
+                <div className='tracked-days'>
                     {dayInfo.map((dayInfo) => (
                         <div key={dayInfo.id}>
                             <Day habitDay={dayInfo.id}></Day>
