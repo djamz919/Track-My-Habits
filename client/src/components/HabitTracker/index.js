@@ -45,21 +45,21 @@ const HabitTracker = (props) => {
             <div className='habit-calendar'>
                 <div className='week-1'>
                     {dayInfo.map((dayInfo) => (
-                        <div className='day' key={dayInfo.id}>
+                        <div id={'week-1-day' + dayInfo.id} className='day' key={dayInfo.id}>
                             <Day></Day>
                         </div>
                     ))}
                 </div>
                 <div className='week-2'>
                     {dayInfo.map((dayInfo) => (
-                        <div className='day' key={dayInfo.id}>
+                        <div id={'week-2-day' + dayInfo.id} className='day' key={dayInfo.id}>
                             <Day></Day>
                         </div>
                     ))}
                 </div>
                 <div className='week-3'>
                     {dayInfo.map((dayInfo) => (
-                        <div className='day' key={dayInfo.id}>
+                        <div id={'week-3-day' + dayInfo.id} className='day'  key={dayInfo.id}>
                             <Day></Day>
                         </div>
                     ))}
