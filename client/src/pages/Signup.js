@@ -22,22 +22,20 @@ const Signup = (props) => {
     })
   }
 
-const handleFormSubmit = async event => {
-  event.preventDefault();
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
 
-
- 
-  try {
-    
-    const { data } = await addUser({
-      variables: { ...formState }
-    });
-    console.log(data);
-  } catch (e) {
-    console.error(e);
-  }
-};
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
   return(
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
