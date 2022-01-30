@@ -26,6 +26,48 @@ const HabitTracker = (props) => {
         {
             id: 7
         },
+        {
+            id: 8
+        },
+        {
+            id: 9
+        },
+        {
+            id: 10
+        },
+        {
+            id: 11
+        },
+        {
+            id: 12
+        },
+        {
+            id: 13
+        },
+        {
+            id: 14
+        },
+        {
+            id: 15
+        },
+        {
+            id: 16
+        },
+        {
+            id: 17
+        },
+        {
+            id: 18
+        },
+        {
+            id: 19
+        },
+        {
+            id: 20
+        },
+        {
+            id: 21
+        }
     ]
 
     return (
@@ -42,22 +84,11 @@ const HabitTracker = (props) => {
                     </button>
                 </div>
             </div>
+            <div className='habit-log'>
+
+            </div>
             <div className='habit-calendar'>
-                <div className='week-1'>
-                    {dayInfo.map((dayInfo) => (
-                        <div className='day' key={dayInfo.id}>
-                            <Day></Day>
-                        </div>
-                    ))}
-                </div>
-                <div className='week-2'>
-                    {dayInfo.map((dayInfo) => (
-                        <div className='day' key={dayInfo.id}>
-                            <Day></Day>
-                        </div>
-                    ))}
-                </div>
-                <div className='week-3'>
+                <div className='days'>
                     {dayInfo.map((dayInfo) => (
                         <div className='day' key={dayInfo.id}>
                             <Day></Day>

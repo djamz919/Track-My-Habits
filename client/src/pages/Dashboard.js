@@ -1,6 +1,5 @@
 import React from 'react';
 import HabitTracker from '../components/HabitTracker';
-import HabitOptions from '../components/HabitOptions';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -22,8 +21,8 @@ const Dashboard = () => {
         <main className='dashboard'>
             {habitInfo.map((habitInfo) => (
                 <section className='user-habit' key={habitInfo.id}>
-                    <HabitOptions UpdateHabit={UpdateHabit} />
                     <HabitTracker
+                        UpdateHabit={UpdateHabit}
                         habitText={habitInfo.habitText}
                         createdAt={habitInfo.createdAt}
                         username={habitInfo.username}

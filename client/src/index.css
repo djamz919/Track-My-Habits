@@ -25,20 +25,18 @@ html,
 body {
   font-family: 'Inconsolata', monospace;
   background-repeat: no-repeat;
+  color: var(--black);
 }
 
 .header {
   font-size: 30px;
   display: flex;
   justify-content: center;
-  color: var(--black);
-  background-color: var(--gray);
   border-bottom: 1px solid black;
 }
 
 .card-body {
   font-size: 30px;
-  color: var(--black);
 }
 
 .card, .card-body, form {
@@ -104,7 +102,6 @@ position:relative;
 }
 
 .habit-card {
-  background-color: var(--gray);
   border-radius: 5px;
   margin: 50px auto;
   padding: 15px;
@@ -113,7 +110,6 @@ position:relative;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  color: var(--black);
 }
 
 .habit-options {
@@ -129,40 +125,23 @@ position:relative;
 .habit-calendar {
   width: 100%;
   min-height: 400px;
-  border: 1px solid black;
-  background-color: white !important;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-evenly;
 }
 
-.week-1 {
+.days {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
 }
 
-.week-2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.week-3 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-around;
-}
-
 .day {
-  display: flex;
-  align-items: center;
+  background-color: var(--gray);
   box-sizing: border-box;
-  border: 1px solid black;
+  border: 1px solid var(--black);
   margin: 5px;
   padding: 10px;
   min-height: 100px;
