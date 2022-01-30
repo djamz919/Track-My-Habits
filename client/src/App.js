@@ -33,9 +33,9 @@ function App() {
         <Header />
         <div className='container'>
           <Routes>
-            <Route path='/' element={<Login />} />
+            <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/' element={<Dashboard />} />
           </Routes>
         </div>
         <Footer />
