@@ -11,7 +11,7 @@ query habits($username: String) {
     days {
       _id
       day
-      completion
+      status
       log
     }
   }
@@ -60,6 +60,22 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
+      habitCount
+      habits {
+        _id
+        habitText
+      }
+    }
+  }
+`;
+
 
 export const QUERY_USER = gql`
   query user($username: String!) {
