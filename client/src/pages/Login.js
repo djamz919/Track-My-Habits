@@ -72,7 +72,8 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <button className="button" type="submit"
-              onClick={() => {navigate("/dashboard")}}>
+              // onClick={() => {navigate("/dashboard")}}
+              >
                 Submit
               </button>
             </form>
