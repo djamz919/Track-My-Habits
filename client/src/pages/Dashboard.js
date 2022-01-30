@@ -9,9 +9,9 @@ import { QUERY_HABITS, QUERY_ME_BASIC } from '../utils/queries';
 
 
 const Dashboard = () => {
-    const { loading, data } = useQuery(QUERY_HABITS); //Pulls all habits in the database
-    const { data: userData} = useQuery(QUERY_ME_BASIC);
-    const habitInfo = data?.habits || [];
+    // const { loading, data } = useQuery(QUERY_HABITS); //Pulls all habits in the database instead of just 
+    const { data: userData } = useQuery(QUERY_ME_BASIC);
+    const habitInfo = userData?.me.habits || [];
 
     // const habitInfo = [
     //     {
@@ -24,29 +24,35 @@ const Dashboard = () => {
     // ]
 
     function UpdateHabit() {
-        console.log(data);
+        // console.log(loading);
+        // console.log(data);
         console.log(habitInfo);
         console.log(userData);
     }
+
 
     return (
         <main className='dashboard'>
             {Auth.loggedIn() ? (
                 <>
+                    {habitInfo.length > 0 && (
+                        <div>You have some habits
+                            {habitInfo.map((habitInfo) => (
+                                <section className='user-habit' key={habitInfo.id}>
+                                    <HabitOptions UpdateHabit={UpdateHabit} />
+                                    <HabitTracker
+                                        habitText={habitInfo.habitText}
+                                        createdAt={habitInfo.createdAt}
+                                        username={habitInfo.username}
+                                        days={habitInfo.days}
+                                    />
+                                </section>
+                            ))}
+                        </div>)}
+                    {habitInfo.length == 0 && (<p>You don't have some habits</p>)}
                     <button className='habit-button' onClick={UpdateHabit}>
                         Update habit information
                     </button>
-                    {/* {habitInfo.map((habitInfo) => (
-                        <section className='user-habit' key={habitInfo.id}>
-                            <HabitOptions UpdateHabit={UpdateHabit} />
-                            <HabitTracker
-                                habitText={habitInfo.habitText}
-                                createdAt={habitInfo.createdAt}
-                                username={habitInfo.username}
-                                days={habitInfo.days}
-                            />
-                        </section>
-                    ))} */}
                 </>
             ) : (
                 <>
