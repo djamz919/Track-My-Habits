@@ -4,12 +4,12 @@ import HabitOptions from '../components/HabitOptions';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import { QUERY_HABITS, QUERY_ME_BASIC } from '../utils/queries';
+import { QUERY_HABITS, QUERY_ME } from '../utils/queries';
 
 
 const Dashboard = () => {
     // const { loading, data } = useQuery(QUERY_HABITS); //Pulls all habits in the database instead of just 
-    const { data: userData } = useQuery(QUERY_ME_BASIC);
+    const { data: userData } = useQuery(QUERY_ME);
     const habitInfo = userData?.me.habits || [];
 
     // const habitInfo = [
