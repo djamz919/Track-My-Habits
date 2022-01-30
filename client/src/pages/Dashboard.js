@@ -4,6 +4,8 @@ import HabitOptions from '../components/HabitOptions';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
+
+    //replace with habit object passed in through props?
     const habitInfo = [
         {
             id: 1,

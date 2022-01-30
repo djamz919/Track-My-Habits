@@ -1,9 +1,10 @@
 import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Day from '../Day';
+//import day data from habit
 
 const HabitTracker = (props) => {
-
+//use useState, and hooks to pass in data
     const dayInfo = [
         {
             id: 1
@@ -27,7 +28,7 @@ const HabitTracker = (props) => {
             id: 7
         },
     ]
-
+//use the days.map below to render all of the days in each habit
     return (
         <section className='habit-card'>
             <div className='habit-options'>
