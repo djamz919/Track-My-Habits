@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const HABITS = gql `
+export const QUERY_HABITS = gql `
 query habits($username: String) {
   habits(username: $username) {
     _id
@@ -37,26 +37,50 @@ export const QUERY_HABIT = gql`
   }
 `;
 
-// export const QUERY_ME_BASIC = gql`
-//   {
-//     me {
-//       _id
-//       username
-//       email
-//       friendCount
-//       friends {
-//         _id
-//         username
-//       }
-//     }
-//   }
-// `;
-
-export const ALL_USERS = gql `
-{
-    users {
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
       username
+      email
+      habitCount
+      habits {
+        _id
+        habitText
+        createdAt
+        daysCount
+        habitComplete
+        days {
+          _id
+          day
+          status
+          log
+        }
+      }
     }
-  
-}
+  }
+`;
+
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      email
+      username
+      habitCount
+      habits {
+        _id
+        username
+        createdAt
+        habitComplete
+        daysCount
+        days {
+          _id
+          day
+          status
+          log
+        }
+      }
+    }
+  }
 `;

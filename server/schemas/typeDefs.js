@@ -3,9 +3,9 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String!
-    email: String!
-    password: String!
+    username: String
+    email: String
+    password: String
     habits: [Habit]
     habitCount: Int
   }
@@ -15,6 +15,7 @@ const typeDefs = gql`
     habitText: String
     createdAt: String
     username: String
+    habitComplete: Boolean
     days: [Day]
     daysCount: Int
   }
@@ -22,7 +23,7 @@ const typeDefs = gql`
   type Day {
     _id: ID
     day: Int
-    completion: Boolean
+    status: Boolean
     log: String
   }
   
@@ -43,8 +44,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addHabit(habitText: String!): Habit
-    addLog(log: String): Habit
-    addDay(day: Int!, completion: Boolean!, log: String, habitId: ID!): Habit
+    addDay(day: Int!, status: Boolean!, log: String, habitId: ID!): Habit
   }
 `;
 

@@ -19,7 +19,7 @@ const habitSchema = new Schema(
         type: String,
         required: true
       },
-      completedMonth: {
+      habitComplete: {
         type: Boolean,
         default: false,
         required: true
