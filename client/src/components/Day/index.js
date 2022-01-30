@@ -1,9 +1,10 @@
 import React from 'react';
+import { ADD_DAY } from '../../utils/mutations';
 
-const Day = () => {
+const Day = (props) => {
     return (
-        <div>
-            <h4 className='habit-day'>Day: </h4>
+        <div id={'day' + props.habitDay} className='day'>
+            <h4 className='habit-day'>Day: {props.habitDay}</h4>
             <h5 className='habit-question'>Did you meet your goal today?</h5>
             <div className='answer-buttons'>
                 <button className='yes'>Yes</button>

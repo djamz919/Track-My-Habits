@@ -1,5 +1,4 @@
-import { React, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { React, useState } from 'react';
 import Day from '../Day';
 
 const HabitTracker = (props) => {
@@ -26,7 +25,71 @@ const HabitTracker = (props) => {
         {
             id: 7
         },
+        {
+            id: 8
+        },
+        {
+            id: 9
+        },
+        {
+            id: 10
+        },
+        {
+            id: 11
+        },
+        {
+            id: 12
+        },
+        {
+            id: 13
+        },
+        {
+            id: 14
+        },
+        {
+            id: 15
+        },
+        {
+            id: 16
+        },
+        {
+            id: 17
+        },
+        {
+            id: 18
+        },
+        {
+            id: 19
+        },
+        {
+            id: 20
+        },
+        {
+            id: 21
+        }
     ]
+
+        const [count, setCount] = useState(1);
+
+        function decrementCount() {
+            setCount(previousCount => {
+                if(previousCount > 1)
+                {
+                    return(previousCount - 1 )
+                }
+                return previousCount;
+            })
+        }
+
+        function incrementCount() {
+            setCount(previousCount => {
+                if(previousCount < 3)
+                {
+                    return(previousCount + 1 )
+                }
+                return previousCount;
+            })
+        }
 
     return (
         <section className='habit-card'>
@@ -37,30 +100,14 @@ const HabitTracker = (props) => {
                     <div className='habit-days'>Current Streak: {props.days} day(s)</div>
                 </div>
                 <div className='button-div'>
-                    <button className='habit-button' onClick={props.UpdateHabit}>
-                        Update habit information
-                    </button>
+                    <button className='habit-button' onClick={props.UpdateHabit}>Update Habit</button>
                 </div>
             </div>
             <div className='habit-calendar'>
-                <div className='week-1'>
+                <div className='tracked-days'>
                     {dayInfo.map((dayInfo) => (
-                        <div id={'week-1-day' + dayInfo.id} className='day' key={dayInfo.id}>
-                            <Day></Day>
-                        </div>
-                    ))}
-                </div>
-                <div className='week-2'>
-                    {dayInfo.map((dayInfo) => (
-                        <div id={'week-2-day' + dayInfo.id} className='day' key={dayInfo.id}>
-                            <Day></Day>
-                        </div>
-                    ))}
-                </div>
-                <div className='week-3'>
-                    {dayInfo.map((dayInfo) => (
-                        <div id={'week-3-day' + dayInfo.id} className='day'  key={dayInfo.id}>
-                            <Day></Day>
+                        <div key={dayInfo.id}>
+                            <Day habitDay={dayInfo.id}></Day>
                         </div>
                     ))}
                 </div>

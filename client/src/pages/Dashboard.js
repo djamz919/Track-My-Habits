@@ -1,7 +1,6 @@
-import React from 'react';
+import { React, useState } from 'react';
 import HabitTracker from '../components/HabitTracker';
 import HabitOptions from '../components/HabitOptions';
-import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
