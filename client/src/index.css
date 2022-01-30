@@ -75,14 +75,22 @@ position:relative;
   color: var(--gray);
 }
 
+.button-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .habit-button {
   display: flex;
   justify-content: center;
+  align-content: center !important;
   color: var(--black) !important;
   background-color: var(--blue) !important;
   font-family: 'Inconsolata', monospace;
-  font-size: 20px;
-  max-width: 20%;
+  font-size: 18px;
+  max-width: 70%;
+  max-height: 60%;
 }
 
 .habit-button:hover {
@@ -106,6 +114,12 @@ position:relative;
   flex-wrap: wrap;
   align-items: center;
   color: var(--black);
+}
+
+.habit-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .habit-info {
@@ -152,4 +166,9 @@ position:relative;
   margin: 5px;
   padding: 10px;
   min-height: 100px;
+}
+
+.answer-buttons {
+  display: flex;
+  justify-content: space-around;
 }

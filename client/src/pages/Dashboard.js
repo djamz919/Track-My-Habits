@@ -20,8 +20,6 @@ const Dashboard = () => {
 
     return (
         <main className='dashboard'>
-            <h1 className='page-title'>Dashboard</h1>
-
             {habitInfo.map((habitInfo) => (
                 <section className='user-habit' key={habitInfo.id}>
                     <HabitOptions UpdateHabit={UpdateHabit} />
