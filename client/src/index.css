@@ -53,7 +53,7 @@ body {
   margin-bottom: 10px;
 }
 
-.button {
+.button, .habit-button {
 display:inline-block;
 padding:0.7em 1.4em;
 margin:0 0.3em 0.3em 0;
@@ -68,9 +68,12 @@ background-color: var(--blue);
 box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
 text-align:center;
 position:relative;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
-.button:hover {
+.button:hover, .habit-button:hover {
   background-color: var(--dark-blue);
   color: var(--gray);
 }
@@ -82,20 +85,7 @@ position:relative;
 }
 
 .habit-button {
-  display: flex;
-  justify-content: center;
-  align-content: center !important;
-  color: var(--black) !important;
-  background-color: var(--blue) !important;
-  font-family: 'Inconsolata', monospace;
-  font-size: 18px;
-  max-width: 70%;
-  max-height: 60%;
-}
-
-.habit-button:hover {
-  background-color: var(--dark-blue) !important;
-  color: var(--gray) !important;
+margin-left: 50px;
 }
 
 .page-title {
@@ -105,9 +95,7 @@ position:relative;
 
 .habit-card {
   border-radius: 5px;
-  margin: 50px auto;
   padding: 15px;
-  width: 960px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -125,7 +113,7 @@ position:relative;
   margin-bottom: 20px;
 }
 
-.habit-calendar {
+/* .habit-calendar {
   width: 100%;
   min-height: 200px;
   background-color: white !important;
@@ -133,9 +121,9 @@ position:relative;
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-evenly;
-}
+} */
 
-.week {
+/* .week {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -150,15 +138,42 @@ position:relative;
   margin: 5px;
   padding: 10px;
   min-height: 100px;
+} */
+
+@media (min-width:1024px) {
+  .week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 80px 80px 80px;
+    gap: 20px;
+    row-gap: 120px;
+  } /* Above is 3 columns, 2 rows. Columns are evenly spaced in available area, rows are 80 pixels each */
+}
+
+@media (max-width:1023px) {
+  .week {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 80px);
+    gap: 20px;
+    row-gap: 140px;
+    grid-auto-flow: column;
+  } /* Above is 3 columns, 2 rows. Columns are evenly spaced in available area, rows are 80 pixels each */
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+  min-height: 100px;
 }
 
 .answer-buttons {
   display: flex;
   justify-content: space-around;
-}
-
-.nav-buttons {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
 }

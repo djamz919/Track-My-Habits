@@ -26,6 +26,48 @@ const HabitTracker = (props) => {
         {
             id: 7
         },
+        {
+            id: 8
+        },
+        {
+            id: 9
+        },
+        {
+            id: 10
+        },
+        {
+            id: 11
+        },
+        {
+            id: 12
+        },
+        {
+            id: 13
+        },
+        {
+            id: 14
+        },
+        {
+            id: 15
+        },
+        {
+            id: 16
+        },
+        {
+            id: 17
+        },
+        {
+            id: 18
+        },
+        {
+            id: 19
+        },
+        {
+            id: 20
+        },
+        {
+            id: 21
+        }
     ]
 
         const [count, setCount] = useState(1);
@@ -60,27 +102,18 @@ const HabitTracker = (props) => {
                 </div>
                 <div className='button-div'>
                     <button className='habit-button' onClick={props.UpdateHabit}>
-                        Update habit information
+                        Update Habit
                     </button>
                 </div>
             </div>
-            <div className='week-number'>Week {count}</div>
             <div className='habit-calendar'>
                 <div className='week'>
                     {dayInfo.map((dayInfo) => (
-                        <div id={'day' + dayInfo.id} className='day' key={dayInfo.id}>
+                        <div key={dayInfo.id}>
                             <Day habitDay={dayInfo.id}></Day>
                         </div>
                     ))}
                 </div>
-            </div>
-            <div className='nav-buttons'>
-                <button className='back-button' onClick={decrementCount}>
-                    Last Week
-                </button>
-                <button className='next-button' onClick={incrementCount}>
-                    Next Week
-                </button>
             </div>
         </section>
     )
