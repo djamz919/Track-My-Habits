@@ -84,3 +84,25 @@ export const QUERY_USER = gql`
     }
   }
 `;
+export const ALL_USERS = gql `
+query users{
+  users{
+    username
+    email
+    habitCount
+    habits {
+      _id
+      username
+      createdAt
+      habitComplete
+      daysCount
+      days {
+        _id
+        day
+        status
+        log
+      }
+    }
+  }
+}
+`;
