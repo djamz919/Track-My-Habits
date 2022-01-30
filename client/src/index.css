@@ -28,7 +28,7 @@ body {
 }
 
 .header {
-  font-size: 35px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   color: var(--black);
@@ -75,7 +75,100 @@ position:relative;
   color: var(--gray);
 }
 
+.button-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.habit-button {
+  display: flex;
+  justify-content: center;
+  align-content: center !important;
+  color: var(--black) !important;
+  background-color: var(--blue) !important;
+  font-family: 'Inconsolata', monospace;
+  font-size: 18px;
+  max-width: 70%;
+  max-height: 60%;
+}
+
+.habit-button:hover {
+  background-color: var(--dark-blue) !important;
+  color: var(--gray) !important;
+}
+
 .page-title {
   display: flex;
   justify-content: center;
+}
+
+.habit-card {
+  background-color: var(--gray);
+  border-radius: 5px;
+  margin: 50px auto;
+  padding: 15px;
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--black);
+}
+
+.habit-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.habit-info {
+  margin-bottom: 20px;
+}
+
+.habit-calendar {
+  width: 100%;
+  min-height: 400px;
+  border: 1px solid black;
+  background-color: white !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.week-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.week-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.week-3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+  min-height: 100px;
+}
+
+.answer-buttons {
+  display: flex;
+  justify-content: space-around;
 }
