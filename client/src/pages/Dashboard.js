@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import HabitTracker from '../components/HabitTracker';
 import HabitOptions from '../components/HabitOptions';
-
+import NewHabitForm from '../components/NewHabitForm';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_HABITS, QUERY_ME } from '../utils/queries';
@@ -48,7 +48,7 @@ const Dashboard = () => {
                                 </section>
                             ))}
                         </div>)}
-                    {habitInfo.length == 0 && (<p>You don't have some habits</p>)}
+                    {habitInfo.length == 0 && (<p>You don't have any habits yet!</p>)}
                     <button className='habit-button' onClick={UpdateHabit}>
                         Update habit information
                     </button>

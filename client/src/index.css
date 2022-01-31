@@ -113,33 +113,6 @@ margin-left: 50px;
   margin-bottom: 20px;
 }
 
-/* .habit-calendar {
-  width: 100%;
-  min-height: 200px;
-  background-color: white !important;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: space-evenly;
-} */
-
-/* .week {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.day {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  border: 1px solid black;
-  margin: 5px;
-  padding: 10px;
-  min-height: 100px;
-} */
-
 @media (min-width:1024px) {
   .tracked-days {
     display: grid;
@@ -147,7 +120,7 @@ margin-left: 50px;
     grid-template-rows: 80px 80px 80px;
     gap: 20px;
     row-gap: 120px;
-  } /* Above is 3 columns, 2 rows. Columns are evenly spaced in available area, rows are 80 pixels each */
+  }
 }
 
 @media (max-width:1023px) {
@@ -158,7 +131,7 @@ margin-left: 50px;
     gap: 20px;
     row-gap: 140px;
     grid-auto-flow: column;
-  } /* Above is 3 columns, 2 rows. Columns are evenly spaced in available area, rows are 80 pixels each */
+  }
 }
 
 .day {
