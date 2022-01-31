@@ -43,7 +43,7 @@ const HabitTracker = (props) => {
                     </button>
                 </div>
             </div>
-            <div className='week-number'>Week {count}</div>
+            <div className='week-number'>Week </div>
             <div className='habit-calendar'>
                 <div className='week'>
                     {dayInfo.map((dayInfo) => (
@@ -54,12 +54,12 @@ const HabitTracker = (props) => {
                 </div>
             </div>
             <div className='nav-buttons'>
-                <button className='back-button' onClick={decrementCount}>
+                {/* <button className='back-button' onClick={decrementCount}>
                     Last Week
                 </button>
                 <button className='next-button' onClick={incrementCount}>
                     Next Week
-                </button>
+                </button> */}
             </div>
         </section>
     )
