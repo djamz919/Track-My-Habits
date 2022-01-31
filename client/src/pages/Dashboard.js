@@ -48,10 +48,14 @@ const Dashboard = () => {
                                 </section>
                             ))}
                         </div>)}
-                    {habitInfo.length == 0 && (<p>You don't have any habits yet!</p>)}
-                    <button className='habit-button' onClick={UpdateHabit}>
+                    {habitInfo.length == 0 && (
+                        <section>
+                            <NewHabitForm></NewHabitForm>
+                        </section>
+                    )}
+                    {/* <button className='habit-button' onClick={UpdateHabit}>
                         Update habit information
-                    </button>
+                    </button> */}
                 </>
             ) : (
                 <>

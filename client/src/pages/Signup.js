@@ -37,7 +37,7 @@ const Signup = (props) => {
     }
   };
   return (
-    <div className="card">
+    <main className="card">
       <div className="card-body">
         <h4>Sign Up</h4>
         <form onSubmit={handleFormSubmit}>
@@ -77,7 +77,7 @@ const Signup = (props) => {
           <Link to='/login'>Return To Login</Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
