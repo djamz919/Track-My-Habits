@@ -1,7 +1,6 @@
 import { React, useState } from 'react';
 import HabitTracker from '../components/HabitTracker';
 import HabitOptions from '../components/HabitOptions';
-import NewHabitForm from '../components/NewHabitForm';
 import Auth from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
@@ -27,9 +26,6 @@ const Dashboard = () => {
         }
     });
     //consider the code below when setting daysCount
-
-
-
 
     function UpdateHabit() {
 
@@ -66,26 +62,14 @@ const Dashboard = () => {
                 <>
                     {habitInfo.length > 0 && (
                         <div>You have some habits
-                            {habitInfo.map((habitInfo) => (
+                            {habitInfo.map((day) => (
                                 <section className='user-habit' key={habitInfo.id}>
                                     <HabitOptions UpdateHabit={UpdateHabit} />
                                     <HabitTracker
                                         habitText={habitInfo.habitText}
                                         createdAt={habitInfo.createdAt}
                                         username={habitInfo.username}
-                                        days={habitInfo.days.map((day) => (
-                                            
-                                            <div id={'day' + habitInfo.daysCount} className='day'>
-                                                <h4 className='habit-day'>Day: {day.log}</h4>
-                                                <h5 className='habit-question'>Did you meet your goal today?</h5>
-                                                <div className='answer-buttons'>
-                                                    <button className='yes'>Yes</button>
-                                                    <button className='no'>No</button>
-                                                </div>
-                                            </div>
-                                        ))}
-                                        daysCount={habitInfo.daysCount}
-
+                                        days={habitInfo.daysCount}
                                     />
                                 </section>
 
@@ -100,7 +84,7 @@ const Dashboard = () => {
                         Update habit information
                     </button>
                     <div className='card-body'>
-                        <h5>You don't have any habits yet!</h5>
+                        <h5>Start a New Habit</h5>
                         <form onSubmit={handleFormSubmit}>
                             <input
                                 className="form-input"
