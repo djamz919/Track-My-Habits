@@ -5,10 +5,9 @@ const daySchema = new Schema(
         day: {
             type: Number,
             required: true,
-            max: 21,
-            unique: true
+            max: 21
         },
-        completion: {
+        status: {
             type: Boolean,
             reqiured: true
         },

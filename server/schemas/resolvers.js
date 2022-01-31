@@ -4,11 +4,11 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async () => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          // .populate('habits')
+          .populate('habits');
 
         return userData;
       }
@@ -17,15 +17,16 @@ const resolvers = {
     },
     users: async (context) => {
       console.log(context)
-      return User.find().select('-__v -password');
+      return User.find().select('-__v -password').populate('habits');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-      .select('-__v -password');
+      .select('-__v -password').populate('habits');
       
     },
-    habits: async () => {
-      return Habit.find();
+    habits: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Habit.find(params);
     },
     habit: async (parent, {_id}) => {
       return Habit.findOne({ _id: id})
@@ -69,22 +70,17 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-
-    //not sure if this will work honestly because I(dan) cannot make habits in graphql for some dumb reason
-    //need to add context.username, and test context.username
     addDay: async (parent, {habitId, completion, log, day}, context) => {
      if(context.user) {
-       //idk cause I can't make habits lol
       const newDay = await Habit.findOneAndUpdate(
         {_id: habitId},
         {$push: {days: {completion, log, day}} },
-        //habit: context.user.habit._id?????
         {new: true}
       );
       // if habit.day.length === 21
       return newDay
     }
-    throw new AuthenticationError('problem problem problem');
+    throw new AuthenticationError('You need to be logged in!');
     }
   }
 };

@@ -28,7 +28,7 @@ body {
 }
 
 .header {
-  font-size: 35px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   color: var(--black);
@@ -53,7 +53,7 @@ body {
   margin-bottom: 10px;
 }
 
-.button {
+.button, .habit-button {
 display:inline-block;
 padding:0.7em 1.4em;
 margin:0 0.3em 0.3em 0;
@@ -68,14 +68,85 @@ background-color: var(--blue);
 box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
 text-align:center;
 position:relative;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
-.button:hover {
+.button:hover, .habit-button:hover {
   background-color: var(--dark-blue);
   color: var(--gray);
+}
+
+.button-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.habit-button {
+margin-left: 50px;
 }
 
 .page-title {
   display: flex;
   justify-content: center;
+}
+
+.habit-card {
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--black);
+}
+
+.habit-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.habit-info {
+  margin-bottom: 20px;
+}
+
+@media (min-width:1024px) {
+  .tracked-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 80px 80px 80px;
+    gap: 20px;
+    row-gap: 120px;
+  }
+}
+
+@media (max-width:1023px) {
+  .tracked-days {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 80px);
+    gap: 20px;
+    row-gap: 140px;
+    grid-auto-flow: column;
+  }
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+  min-height: 100px;
+}
+
+.answer-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
