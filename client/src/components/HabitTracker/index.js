@@ -96,10 +96,12 @@ const HabitTracker = (props) => {
             <div className='habit-options'>
                 <div className='habit-info'>
                     <h3 className='habit-title'>Current Habit: {props.habitText}</h3>
-                    <div className='habit-created'>Habit Start Date: {props.createdAt}</div>
+                    <div className='habit-created'>Habit Start Date: {props.days}</div>
+                   
                 </div>
                 <div className='button-div'>
                     <button className='habit-button' onClick={props.UpdateHabit}>Update Habit</button>
+                
                 </div>
             </div>
             <div className='habit-calendar'>
