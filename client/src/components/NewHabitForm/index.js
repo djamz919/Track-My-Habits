@@ -6,13 +6,18 @@ import Auth from '../../utils/auth';
 
 const NewHabitForm = (props) => {
     const [formState, setFormState] = useState({
-        habitText: ''
+        habitText: '',
+        username: 'Test',
+        createdAt: Date.now(),
+        habitComplete: false,
+        days: 0
     })
 
     const [addHabit, { error }] = useMutation(ADD_HABIT);
     const handleChange = (event) => {
         const { name, value } = event.target;
-
+        console.log(name);
+        console.log(value);
         setFormState({
             ...formState,
             [name]: value
@@ -24,11 +29,11 @@ const NewHabitForm = (props) => {
         event.preventDefault();
 
         try {
+            console.log({...formState});
             const { data } = await addHabit({
                 variables: { ...formState },
             });
-            
-            Auth.addHabit(data.addHabit.token);
+            console.log(data);
         } catch (e) {
             console.error(e);
         }
@@ -42,10 +47,9 @@ const NewHabitForm = (props) => {
                     <input
                         className="form-input"
                         placeholder="Enter your new habit here!"
-                        name="habit"
-                        type="habit"
-                        id="habit"
-                        value={formState.habitText}
+                        name="habitText"
+                        type="text"
+                        id="habitText"
                         onChange={handleChange}
                     />
                     <button className="button" type="submit">

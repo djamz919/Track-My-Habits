@@ -29,10 +29,11 @@ mutation addUser($username: String!, $email: String!, $password: String!){
 export const ADD_HABIT = gql`
 mutation addHabit($habitText: String!) {
   addHabit(habitText: $habitText) {
-    _id
     habitText
     username
     createdAt
+    habitComplete
+    days
   }
 }
 `;

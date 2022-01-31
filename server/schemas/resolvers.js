@@ -56,6 +56,7 @@ const resolvers = {
       return { token, user };
     },
     addHabit: async (parent, args, context) => {
+      console.log(context.user);
       if (context.user) {
         const habit = await Habit.create({ ...args, username: context.user.username });
 
