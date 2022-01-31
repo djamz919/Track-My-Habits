@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_HABIT } from '../../utils/mutations';
 
+import Auth from '../../utils/auth';
+
 const NewHabitForm = (props) => {
     const [formState, setFormState] = useState({
         habitText: ''
@@ -25,7 +27,8 @@ const NewHabitForm = (props) => {
             const { data } = await addHabit({
                 variables: { ...formState },
             });
-
+            
+            Auth.addHabit(data.addHabit.token);
         } catch (e) {
             console.error(e);
         }

@@ -18,16 +18,18 @@ const Header = () => {
             </div>
             {Auth.loggedIn() ? (
                 <>
-                    <p>You're logged in</p>
-                    <a href="/" onClick={logout}>
-                        Logout
-                    </a>
+                    <div className='header-options'>
+                        {/* <h5>You're logged in</h5> */}
+                        <Link to="/login" onClick={logout}>Logout</Link>
+                    </div>
                 </>
             ) : (
                 <>
-                    <p>You're logged out</p>
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">Signup</Link>
+                    <div className='header-options'>
+                        {/* <h5>You're logged out</h5> */}
+                        <Link to="/login">Login</Link>
+                        <Link to="/signup">Signup</Link>
+                    </div>
                 </>
             )}
         </header >

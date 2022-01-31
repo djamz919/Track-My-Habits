@@ -36,6 +36,7 @@ const Signup = (props) => {
       console.error(e);
     }
   };
+  
   return (
     <main className="card">
       <div className="card-body">

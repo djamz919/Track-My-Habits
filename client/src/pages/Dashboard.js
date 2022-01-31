@@ -35,7 +35,7 @@ const Dashboard = () => {
             {Auth.loggedIn() ? (
                 <>
                     {habitInfo.length > 0 && (
-                        <div>You have some habits
+                        <div>
                             {habitInfo.map((habitInfo) => (
                                 <section className='user-habit' key={habitInfo.id}>
                                     <HabitOptions UpdateHabit={UpdateHabit} />
