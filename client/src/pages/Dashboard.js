@@ -4,7 +4,7 @@ import HabitOptions from '../components/HabitOptions';
 import NewHabitForm from '../components/NewHabitForm';
 import Auth from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_HABITS, QUERY_ME } from '../utils/queries';
+import { QUERY_HABITS, QUERY_ME} from '../utils/queries';
 import { ADD_HABIT } from '../utils/mutations';
 
 
@@ -13,20 +13,39 @@ const Dashboard = () => {
     const { data: userData } = useQuery(QUERY_ME);
     const habitInfo = userData?.me.habits || [];
 
-
   const [habitText, setHabitText] = useState('');
-const [addHabit, {error}] = useMutation(ADD_HABIT);
+  const [characterCount, setCharacterCount] = useState(0);
+
+const [addHabit, {error}] = useMutation(ADD_HABIT, {
+    update(cache, {data: {addHabit}}) {
+try{
+        const {habits} = cache.readQuery({query: QUERY_HABITS})
+
+        cache.writeQuery({
+            query: QUERY_HABITS,
+            data: {habits: [addHabit, ...habits]}
+        });
+    } catch(e){
+        console.log(e);
+    }
+    const { me } = cache.readQuery({ query: QUERY_ME });
+    cache.writeQuery({
+      query: QUERY_ME,
+      data: { me: { ...me, habits: [...me.habits, addHabit] } },
+    });
+    }
+});
 //consider the code below when setting daysCount
 
-  const [characterCount, setCharacterCount] = useState(0);
+
 
 
     function UpdateHabit() {
-        // console.log(loading);
-        // console.log(data);
+  
         console.log(habitInfo);
         console.log(userData);
     }
+
     const handleChange = (event) => {
         if (event.target.value.length <= 280) {
           setHabitText(event.target.value);
