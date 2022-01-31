@@ -45,7 +45,7 @@ const NewHabitForm = (props) => {
                         name="habit"
                         type="habit"
                         id="habit"
-                        value={formState.username}
+                        value={formState.habitText}
                         onChange={handleChange}
                     />
                     <button className="button" type="submit">
