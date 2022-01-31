@@ -95,7 +95,7 @@ const HabitTracker = (props) => {
         <section className='habit-card'>
             <div className='habit-options'>
                 <div className='habit-info'>
-                    <h3 className='habit-title'>Current Habit: {props.habitText}</h3>
+                    <h3 className='habit-title'>Your Habit: {props.habitText}</h3>
                     <div className='habit-created'>Habit Start Date: {props.createdAt}</div>
                 </div>
                 {/* <div className='button-div'>
