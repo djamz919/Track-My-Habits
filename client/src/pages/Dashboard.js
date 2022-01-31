@@ -4,7 +4,7 @@ import HabitOptions from '../components/HabitOptions';
 import NewHabitForm from '../components/NewHabitForm';
 import Auth from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_HABITS, QUERY_ME} from '../utils/queries';
+import { QUERY_HABITS, QUERY_ME } from '../utils/queries';
 import { ADD_HABIT } from '../utils/mutations';
 
 
@@ -13,61 +13,61 @@ const Dashboard = () => {
     const { data: userData } = useQuery(QUERY_ME);
     const habitInfo = userData?.me.habits || [];
 
-  const [habitText, setHabitText] = useState('');
-  const [characterCount, setCharacterCount] = useState(0);
+    const [habitText, setHabitText] = useState('');
+    const [characterCount, setCharacterCount] = useState(0);
 
-const [addHabit, {error}] = useMutation(ADD_HABIT, {
-    update(cache, {data: {addHabit}}) {
-try{
-        const {habits} = cache.readQuery({query: QUERY_HABITS})
+    const [addHabit, { error }] = useMutation(ADD_HABIT, {
+        update(cache, { data: { addHabit } }) {
+            try {
+                const { habits } = cache.readQuery({ query: QUERY_HABITS })
 
-        cache.writeQuery({
-            query: QUERY_HABITS,
-            data: {habits: [addHabit, ...habits]}
-        });
-    } catch(e){
-        console.log(e);
-    }
-    const { me } = cache.readQuery({ query: QUERY_ME });
-    cache.writeQuery({
-      query: QUERY_ME,
-      data: { me: { ...me, habits: [...me.habits, addHabit] } },
+                cache.writeQuery({
+                    query: QUERY_HABITS,
+                    data: { habits: [addHabit, ...habits] }
+                });
+            } catch (e) {
+                console.log(e);
+            }
+            const { me } = cache.readQuery({ query: QUERY_ME });
+            cache.writeQuery({
+                query: QUERY_ME,
+                data: { me: { ...me, habits: [...me.habits, addHabit] } },
+            });
+        }
     });
-    }
-});
-//consider the code below when setting daysCount
+    //consider the code below when setting daysCount
 
 
 
 
     function UpdateHabit() {
-  
+
         console.log(habitInfo);
         console.log(userData);
     }
 
     const handleChange = (event) => {
         if (event.target.value.length <= 280) {
-          setHabitText(event.target.value);
-          setCharacterCount(event.target.value.length);
+            setHabitText(event.target.value);
+            setCharacterCount(event.target.value.length);
         }
-      };
+    };
 
-      const handleFormSubmit = async event => {
-          event.preventDefault();
-      
+    const handleFormSubmit = async event => {
+        event.preventDefault();
+
         //   console.log(habitInfo);
         // console.log(userData);
-        try{
+        try {
             await addHabit({
-variables: {habitText}
+                variables: { habitText }
             });
             setHabitText('');
             setCharacterCount(0);
-        } catch(e){
+        } catch (e) {
             console.log(e);
         }
-      }
+    }
 
     return (
         <main className='dashboard'>
@@ -92,23 +92,23 @@ variables: {habitText}
                         Update habit information
                     </button>
                     <div className='card-body'>
-                <h5>You don't have any habits yet!</h5>
-                <form onSubmit={handleFormSubmit}>
-                    <input
-                        className="form-input"
-                        placeholder="Enter your new habit here!"
-                        name="habit"
-                        type="habit"
-                        id="habit"
-                        value={habitText}
-                        onChange={handleChange}
-                    />
-                    <button className="button" type="submit">
-                        Get Started!
-                    </button>
-                </form>
-                {/* {error && <div>Error</div>} */}
-            </div>
+                        <h5>You don't have any habits yet!</h5>
+                        <form onSubmit={handleFormSubmit}>
+                            <input
+                                className="form-input"
+                                placeholder="Enter your new habit here!"
+                                name="habit"
+                                type="habit"
+                                id="habit"
+                                value={habitText}
+                                onChange={handleChange}
+                            />
+                            <button className="button" type="submit">
+                                Get Started!
+                            </button>
+                        </form>
+                        {/* {error && <div>Error</div>} */}
+                    </div>
                 </>
             ) : (
                 <>

@@ -27,13 +27,54 @@ body {
   background-repeat: no-repeat;
 }
 
-.header {
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  color: var(--black);
-  background-color: var(--gray);
-  border-bottom: 1px solid black;
+@media (min-width:1024px) {
+  .header {
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    color: var(--black);
+    background-color: var(--gray);
+    border-bottom: 1px solid black;
+    width: 100%;
+  }
+}
+
+@media (max-width:1023px) {
+  .header {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: var(--black);
+    background-color: var(--gray);
+    border-bottom: 1px solid black;
+    width: 100%;
+  }
+}
+
+@media (min-width:1024px) {
+  .header-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: flex-end;
+    align-items: flex-end;
+    width: 35%;
+  } 
+}
+
+@media (max-width:1023px) {
+  .header-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-end;
+    width: 35%;
+  }
 }
 
 .card-body {
