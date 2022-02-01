@@ -61,7 +61,7 @@ const Dashboard = () => {
                         </div>)}
 
                     {habitInfo.length === 0 && (<div className='card-body'>
-                        <h2>You don't have any habits yet!</h2>
+                        <h4 className='wrong'>You don't have any habits yet!</h4>
                         <form onSubmit={handleFormSubmit}>
                             <input
                                 className="form-input"

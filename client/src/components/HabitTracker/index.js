@@ -5,7 +5,7 @@ import DayForm from '../DayForm';
 const HabitTracker = ({ habits }) => {
 
     return (
-        <div>
+        <div className='something'>
             {habits && habits.map(habit => (
                 <section className='habit-card' key={habit._id}>
                     <div className='habit-options'>
@@ -17,7 +17,7 @@ const HabitTracker = ({ habits }) => {
                     </div>
                     {habit.daysCount < 21 && (<DayForm habitId={habit._id} daysCount={habit.daysCount}></DayForm>)}
                     <div className='habit-calendar'>
-                            <Day days={habit.days}></Day>
+                            <Day days={habit.days} habit={habit.habitText}></Day>
                     </div>
                 </section>
             ))}
