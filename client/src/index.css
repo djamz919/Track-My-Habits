@@ -30,10 +30,47 @@ body {
 .header {
   font-size: 30px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
   color: var(--black);
   background-color: var(--gray);
   border-bottom: 1px solid black;
+  width: 100%;
+}
+
+@media (max-width:1023px) {
+  .header {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: var(--black);
+    background-color: var(--gray);
+    border-bottom: 1px solid black;
+    width: 100%;
+  }
+}
+
+.header-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: flex-end;
+  align-items: flex-end;
+  width: 35%;
+}
+
+@media (max-width:1023px) {
+  .header-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-end;
+    width: 35%;
+  }
 }
 
 .card-body {
@@ -110,6 +147,10 @@ margin-left: 50px;
 }
 
 .habit-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
@@ -117,9 +158,10 @@ margin-left: 50px;
   .tracked-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: 80px 80px 80px;
+    grid-template-rows: 250px 250px 250px;
     gap: 20px;
-    row-gap: 120px;
+    row-gap: 100px;
+    margin: 50px;
   }
 }
 
@@ -127,10 +169,11 @@ margin-left: 50px;
   .tracked-days {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(7, 80px);
+    grid-template-rows: repeat(7, 250px);
     gap: 20px;
-    row-gap: 140px;
+    row-gap: 100px;
     grid-auto-flow: column;
+    margin: 50px;
   }
 }
 
@@ -138,11 +181,12 @@ margin-left: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   box-sizing: border-box;
   border: 1px solid black;
   margin: 5px;
-  padding: 10px;
-  min-height: 100px;
+  padding: 50px;
+  height: 100%;
 }
 
 .answer-buttons {
