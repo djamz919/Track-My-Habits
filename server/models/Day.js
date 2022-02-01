@@ -8,7 +8,7 @@ const daySchema = new Schema(
         },
         status: {
             type: Boolean,
-            defualt: false
+            default: false
         },
         log: {
             type: String
