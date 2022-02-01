@@ -14,7 +14,7 @@ const Header = () => {
             <div className="nav-container">
                 <Link to="/">
                     <div className='header-box'>
-                        <h1>Track My Habits</h1>
+                        <h1 className='header-title'><img src="https://img.icons8.com/plasticine/100/000000/21.png"/>Days</h1>
                     </div>
                 </Link>
                 <nav className="text-center">
