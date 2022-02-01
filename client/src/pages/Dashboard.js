@@ -1,7 +1,5 @@
 import { React, useState } from 'react';
 import HabitTracker from '../components/HabitTracker';
-import HabitOptions from '../components/HabitOptions';
-import NewHabitForm from '../components/NewHabitForm';
 import Auth from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME, QUERY_HABITS } from '../utils/queries';
