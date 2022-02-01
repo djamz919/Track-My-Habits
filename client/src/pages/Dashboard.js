@@ -18,15 +18,15 @@ const Dashboard = () => {
 
     const [addHabit, { error }] = useMutation(ADD_HABIT, {
         update(cache, { data: { addHabit } }) {
-    
-          // update me object's cache
-          const { me } = cache.readQuery({ query: QUERY_ME });
-          cache.writeQuery({
-            query: QUERY_ME,
-            data: { me: { ...me, habits: [...me.habits, addHabit] } },
-          });
+
+            // update me object's cache
+            const { me } = cache.readQuery({ query: QUERY_ME });
+            cache.writeQuery({
+                query: QUERY_ME,
+                data: { me: { ...me, habits: [...me.habits, addHabit] } },
+            });
         },
-      });
+    });
 
 
     function displayHabit() {
@@ -71,22 +71,7 @@ const Dashboard = () => {
                         <div>You have some habits
                             {habitInfo.map((habits) => (
                                 <section className='user-habit' >
-                                    {/* <HabitOptions UpdateHabit={UpdateHabit} /> */}
-                                    <HabitTracker
-                                        habits={habitInfo}
-                                    // days={habits.days.map((day) => (
-
-                                    //     <div id={'day' + habitInfo.daysCount} className='day'>
-                                    //         <h4 className='habit-day'>Day: {day.log}</h4>
-                                    //         <h5 className='habit-question'>Did you meet your goal today?</h5>
-                                    //         <div className='answer-buttons'>
-                                    //             <button className='yes'>Yes</button>
-                                    //             <button className='no'>No</button>
-                                    //         </div>
-                                    //     </div>
-                                    // ))}
-                                    // daysCount={habitInfo.daysCount}
-                                    />
+                                    <HabitTracker habits={habitInfo}/>
                                 </section>
 
                             ))}

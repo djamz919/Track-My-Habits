@@ -1,13 +1,13 @@
 import React from 'react';
-import { ADD_DAY } from '../../utils/mutations';
 
-const Day = (props) => {
-    if (!props.length) {
-        return <h3>No Habits Yet</h3>;
+const Day = ({ days }) => {
+    if (!days.length) {
+        return <h3>No Logs Yet</h3>;
     }
 
     function displayDays() {
-        console.log(props);
+        console.log(days);
+        console.log(days[0].status);
     }
 
     return (
@@ -15,14 +15,15 @@ const Day = (props) => {
             <button className='habit-button' onClick={displayDays}>
                 Display Days in Day
             </button>
-            <div id={'day' + props.habitDay} className='day'>
-                <h4 className='habit-day'>Day: {props.habitDay}</h4>
-                <h5 className='habit-question'>Did you meet your goal today?</h5>
-                <div className='answer-buttons'>
-                    <button className='yes'>Yes</button>
-                    <button className='no'>No</button>
+            {days && days.map(day => (
+                <div id={'day' + day.day} className='day'>
+                    <h4 className='habit-day'>Day: {day.day}</h4>
+                    {day.status && (<p className='habit-question'>Congrats! You did your habit!</p>)}
+                    {!day.status && (<p className='habit-question'>Oh no! You didn't do your habit!</p>)}
+                    <p className='habit-log'>Log: {day.log}</p>
                 </div>
-            </div>
+            ))}
+
         </div>
 
     )

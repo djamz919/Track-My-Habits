@@ -27,6 +27,7 @@ const HabitTracker = ({ habits }) => {
                         </div>
                     </div>
                     <DayForm habitId={habit._id} daysCount={habit.daysCount}></DayForm>
+                    <Day days={habit.days}></Day>
                     <div className='habit-calendar'>
                         <div className='tracked-days'>
                         </div>
