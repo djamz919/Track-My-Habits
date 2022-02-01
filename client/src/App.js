@@ -9,10 +9,7 @@ import {
 }
   from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
-
 import Header from './components/Header';
-import Footer from './components/Footer';
 // import { useQuery } from '@apollo/client';
 // import { HABITS, ALL_USERS } from './utils/queries'
 import Login from './pages/Login';
@@ -51,7 +48,6 @@ function App() {
               <Route path='/' element={<Dashboard />} />
             </Routes>
           </div>
-          <Footer />
         </div>
       </Router>
     </ApolloProvider>
