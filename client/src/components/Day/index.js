@@ -5,22 +5,15 @@ const Day = ({ days }) => {
         return <h3>No Logs Yet</h3>;
     }
 
-    function displayDays() {
-        console.log(days);
-        console.log(days[0].status);
-    }
 
     return (
         <div>
-            <button className='habit-button' onClick={displayDays}>
-                Display Days in Day
-            </button>
             {days && days.map(day => (
-                <div id={'day' + day.day} className='day'>
+                <div key={day._id} className='day'>
                     <h4 className='habit-day'>Day: {day.day}</h4>
                     {day.status && (<p className='habit-question'>Congrats! You did your habit!</p>)}
                     {!day.status && (<p className='habit-question'>Oh no! You didn't do your habit!</p>)}
-                    <p className='habit-log'>Log: {day.log}</p>
+                    {day.log && (<p className='habit-log'>Log: {day.log}</p>)}
                 </div>
             ))}
 

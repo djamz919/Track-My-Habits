@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { useMutation } from '@apollo/client';
 import { ADD_DAY } from '../../utils/mutations';
 
@@ -67,20 +66,16 @@ const DayForm = ({ habitId, daysCount }) => {
                     <input
                         type="checkbox"
                         id="status"
-                        name="topping"
-                        value="habitAchieved"
+                        name="status"
                         checked={isChecked}
                         onChange={handleOnChange}
                     />
                     Check if you completed your habit today
                 </div>
-                <div className="result">
-                    Above checkbox is {isChecked ? "True" : "False"}.
-                </div>
+                    <button className="btn col-12 col-md-3" type="submit" onClick={() => setCount(count + 1)}>
+                        Submit
+                    </button>
 
-                <button className="btn col-12 col-md-3" type="submit" onClick={() => setCount(count + 1)}>
-                    Submit
-                </button>
             </form>
 
             {error && <div>Something went wrong...</div>}

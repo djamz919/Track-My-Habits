@@ -12,20 +12,20 @@ const Header = () => {
     return (
         <header className="header">
             <div className="nav-container">
-                <h1>Track My Habits</h1>
+                <Link to="/">
+                    <h1>Track My Habits</h1>
+                </Link>
                 <nav className="text-center">
                 </nav>
             </div>
             {Auth.loggedIn() ? (
                 <>
-                    <p>You're logged in</p>
                     <a href="/" onClick={logout}>
                         Logout
                     </a>
                 </>
             ) : (
                 <>
-                    <p>You're logged out</p>
                     <Link to="/login">Login</Link>
                     <Link to="/signup">Signup</Link>
                 </>

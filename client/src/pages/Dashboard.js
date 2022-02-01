@@ -12,7 +12,6 @@ const Dashboard = () => {
     const habitInfo = userData?.me.habits || []; // seed a user to prevent this from erroring when no users
 
     const [habitText, setHabitText] = useState('');
-    const [characterCount, setCharacterCount] = useState(0);
 
     const [addHabit, { error }] = useMutation(ADD_HABIT, {
         update(cache, { data: { addHabit } }) {
@@ -26,22 +25,9 @@ const Dashboard = () => {
         },
     });
 
-
-    function displayHabit() {
-        console.log(habitInfo);
-    }
-
-
-    function UpdateHabit() {
-
-        console.log(habitInfo[0].days[0].day);
-
-    }
-
     const handleChange = (event) => {
         if (event.target.value.length <= 280) {
             setHabitText(event.target.value);
-            setCharacterCount(event.target.value.length);
         }
     };
 
@@ -55,7 +41,6 @@ const Dashboard = () => {
                 variables: { habitText }
             });
             setHabitText('');
-            setCharacterCount(0);
         } catch (e) {
             console.log(e);
         }
@@ -66,20 +51,14 @@ const Dashboard = () => {
             {Auth.loggedIn() ? (
                 <>
                     {habitInfo.length > 0 && (
-                        <div>You have some habits
-                            {habitInfo.map((habits) => (
-                                <section className='user-habit' >
-                                    <HabitTracker habits={habitInfo}/>
-                                </section>
-
-                            ))}
-                            <button className='habit-button' onClick={displayHabit}>
-                                Display Habit
-                            </button>
+                        <div>
+                            <section className='user-habit' >
+                                <HabitTracker habits={habitInfo} />
+                            </section>
                         </div>)}
 
-                    {habitInfo.length == 0 && (<div className='card-body'>
-                        <h5>You don't have any habits yet!</h5>
+                    {habitInfo.length === 0 && (<div className='card-body'>
+                        <h2>You don't have any habits yet!</h2>
                         <form onSubmit={handleFormSubmit}>
                             <input
                                 className="form-input"
