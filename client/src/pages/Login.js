@@ -46,10 +46,10 @@ const Login = (props) => {
 
   return (
     <main>
-      <div>
+      <div className='page-stuff'>
         <div className="card">
           <div className="card-body">
-            <h4>Login</h4>
+            <h4 className='login'>Login</h4>
             <form onSubmit={handleFormSubmit} >
               <input
                 className="form-input"
@@ -77,8 +77,8 @@ const Login = (props) => {
             </form>
             {error && <div>Login failed</div>}
             <div>
-              <h5>Don't have an account?</h5>
-              <Link to='/signup'>Create One Here!</Link>
+              <h5 className='login-stuff'>Don't have an account?</h5>
+              <Link className='signup-link' to='/signup'>Create One Here!</Link>
             </div>
           </div>
         </div>

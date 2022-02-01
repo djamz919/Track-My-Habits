@@ -3,7 +3,10 @@
   --black: #000000;
   --blue: #59A5D8;
   --dark-blue: #133C55;
- 
+  --sand: #f4e9cdd4 ;
+  --lighter-blue: #9dbebb;
+  --greenish: #77aca2;
+  --iron: #031926;
 }
 
 * {
@@ -12,7 +15,7 @@
 }
 
 a {
-  color: var(--dark-blue);
+  color: var(--iron);
   text-decoration: none;
   font-weight: bold;
   display: flex;
@@ -39,7 +42,7 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   color: var(--black);
-  /* background-color: var(--gray); */
+ 
   background-color:rgba(0, 139, 139, 0.681);
   border-bottom: 1px solid black;
   width: 100%;
@@ -57,7 +60,9 @@ body {
   margin-left: 25%;
   margin-top: 5%;
   padding: 25px;
-  background-color: var(--gray);
+  border-radius: 25px;
+  background-color: var(--sand);
+
 }
 
 @media (max-width:1023px) {
@@ -74,7 +79,9 @@ body {
     width: 100%;
   }
 }
-
+.habit-calendar{
+  
+}
 .header-options {
   display: flex;
   flex-direction: row;
@@ -83,6 +90,15 @@ body {
   align-items: flex-end;
   padding-bottom: 2%;
   width: 35%;
+}
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+ padding: 1%;
+ background-color: var(--lighter-blue);
+  text-align: center;
 }
 
 @media (max-width:1023px) {
@@ -106,13 +122,18 @@ body {
   font-size: 30px;
   color: var(--black);
 }
-
+.login { 
+padding-bottom: 3%;
+}
 .card, .card-body, form {
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  background-color: var(--sand);
+  padding:3%;
+  border-radius: 25px;
 }
 
 .form-input, .button {
@@ -165,6 +186,21 @@ margin-left: 50px;
   font-weight: bold;
   padding:3%;
 }
+.login-stuff{
+  display: flex;
+  justify-content: center;
+  font-size: 50%;
+  font-weight:normal;
+  padding:3%;
+  text-align: center;
+}
+.signup-link{
+  display: flex;
+  justify-content: center;
+  font-size: 50%;
+  font-weight:bold;
+  
+}
 
 .habit-card {
   border-radius: 5px;
@@ -193,7 +229,8 @@ margin-left: 50px;
 @media (min-width:1024px) {
   .tracked-days {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    /* we may need to lower the repeat number...spills off the page for me(Dan) */
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 250px 250px 250px;
     gap: 20px;
     row-gap: 100px;

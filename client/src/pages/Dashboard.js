@@ -83,7 +83,7 @@ const Dashboard = () => {
                 </>
             ) : (
                 <>
-                    <p className='page-stuff'>Log in to start tracking your habits!</p>
+                    
                     <section className='greeting-message'>
                         <div>
                             <h2>Welcome To 21 Days!</h2>
@@ -95,6 +95,7 @@ const Dashboard = () => {
                             </p>
                         </div>
                     </section>
+                    <p className='page-stuff'>Log in to start tracking your habits!</p>
                 </>
             )}
         </main>
