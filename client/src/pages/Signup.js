@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
-import Auth from '../utils/auth';
 
 const Signup = (props) => {
   const [formState, setFormState] = useState({
@@ -30,8 +29,7 @@ const Signup = (props) => {
       const { data } = await addUser({
         variables: { ...formState },
       });
-
-      Auth.login(data.addUser.token);
+      window.location.assign('/login');
     } catch (e) {
       console.error(e);
     }

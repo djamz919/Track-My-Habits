@@ -4,12 +4,11 @@ const daySchema = new Schema(
     {
         day: {
             type: Number,
-            required: true,
             max: 21
         },
         status: {
             type: Boolean,
-            reqiured: true
+            default: false
         },
         log: {
             type: String
