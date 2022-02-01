@@ -72,7 +72,7 @@ const DayForm = ({ habitId, daysCount }) => {
                     />
                     Check if you completed your habit today
                 </div>
-                    <button className="btn col-12 col-md-3" type="submit" onClick={() => setCount(count + 1)}>
+                    <button className="button" type="submit" onClick={() => setCount(count + 1)}>
                         Submit
                     </button>
 

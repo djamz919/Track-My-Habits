@@ -17,9 +17,7 @@ const HabitTracker = ({ habits }) => {
                     </div>
                     {habit.daysCount < 21 && (<DayForm habitId={habit._id} daysCount={habit.daysCount}></DayForm>)}
                     <div className='habit-calendar'>
-                        <div className='tracked-days'>
                             <Day days={habit.days}></Day>
-                        </div>
                     </div>
                 </section>
             ))}
