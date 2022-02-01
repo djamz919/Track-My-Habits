@@ -4,6 +4,9 @@ import Auth from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME, QUERY_HABITS } from '../utils/queries';
 import { ADD_HABIT } from '../utils/mutations';
+import { Link } from 'react-router-dom';
+import Login from './Login';
+import Signup from './Signup';
 
 
 const Dashboard = () => {
@@ -80,7 +83,17 @@ const Dashboard = () => {
                 </>
             ) : (
                 <>
-                    <p>Log in to start tracking your habits!</p>
+                    <section className='greeting-message'>
+                        <div>
+                            <h2>Welcome To 21 Days!</h2>
+                            <p className='greeting-paragraph'>
+                                21 Days is an app with a simple premise - It takes 21 days to build (or break) a habit.
+                                Whether your goal is to exercise more, stop smoking, or learn a new skill,
+                                this app gives you the tools to hold yourself accountable for those crucial first 21 days.
+                                Create your account now to start building a habit that could last a lifetime.
+                            </p>
+                        </div>
+                    </section>
                 </>
             )}
         </main>

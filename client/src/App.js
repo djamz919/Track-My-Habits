@@ -9,8 +9,6 @@ import {
 }
   from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
-
 import Header from './components/Header';
 // import { useQuery } from '@apollo/client';
 // import { HABITS, ALL_USERS } from './utils/queries'
