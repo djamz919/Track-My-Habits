@@ -80,7 +80,7 @@ const Dashboard = () => {
                 </>
             ) : (
                 <>
-                    <p>Log in to start tracking your habits!</p>
+                    <p className='page-stuff'>Log in to start tracking your habits!</p>
                 </>
             )}
         </main>
