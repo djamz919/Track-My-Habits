@@ -26,10 +26,7 @@ const Dashboard = () => {
             });
         }
     });
-    //consider the code below when setting daysCount
-
-
-
+   
 
     function UpdateHabit() {
 
@@ -87,6 +84,8 @@ const Dashboard = () => {
                                         daysCount={habitInfo.daysCount}
 
                                     />
+                             
+                         
                                 </section>
 
                             ))}
@@ -115,6 +114,7 @@ const Dashboard = () => {
                                 Get Started!
                             </button>
                         </form>
+                      
                         {/* {error && <div>Error</div>} */}
                     </div>
                 </>
