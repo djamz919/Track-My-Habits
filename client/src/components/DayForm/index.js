@@ -1,54 +1,91 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 
-import Auth from '../utils/auth';
-import { useQuery, useMutation } from '@apollo/client';
-import { ADD_DAY } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_DAY } from '../../utils/mutations';
 
+const DayForm = ({ habitId, daysCount }) => {
+    const [formState, setFormState] = useState({
+        habitId: '',
+        day: '',
+        log: '',
+        status: ''
+    });
 
+    const [count, setCount] = useState(daysCount);
+    const [isChecked, setIsChecked] = useState(false);
 
-
-const DayCard = () => {
-
-
-
-    const [logBody, updateLog] = useState('');
-    const [newDay, {err}] = useMutation(ADD_DAY);
-    
-    const daySubmit = async (event) =>{
-        event.preventDefault();
-        updateLog(event.target.value);
-    try {
-        await newDay({
-            variable:{logBody}
-        });
-        updateLog('')
-    }
-    catch(e) {
-        console.log(e);
-    }
+    const handleOnChange = () => {
+        setIsChecked(!isChecked);
     };
 
+    const [addDay, { error }] = useMutation(ADD_DAY);
 
-    
+    // update state based on form input changes
+    const handleChange = (event) => {
+        const { name, value } = event.target;
 
+        setFormState({
+            ...formState,
+            [name]: value
+        })
+    }
+    // submit form
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
 
-return(
-<form onSubmit={daySubmit}>
-    <input
-        className="form-input"
-        placeholder="Enter your new habit here!"
-        name="habit"
-        type="habit"
-        id="habit"
-        value={logBody}
-        onChange={handleFormSubmit}
-    />   <button className="button" type="submit">
-        Get Started!
-    </button>
-</form>
+        formState.day = count;
+        formState.habitId = habitId;
+        formState.status = isChecked;
 
-)
+        console.log(formState);
 
-}
+        try {
+            const { data } = await addDay({
+                variables: { ...formState },
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
-export default DayCard;
+    return (
+        <div>
+            <form
+                className="flex-row justify-center justify-space-between-md align-stretch"
+                onSubmit={handleFormSubmit}
+            >
+                <input
+                    className="form-input"
+                    placeholder="Enter a log"
+                    name="log"
+                    type="log"
+                    id="log"
+                    value={formState.log}
+                    onChange={handleChange}
+                />
+                <div className="form-input">
+                    <input
+                        type="checkbox"
+                        id="status"
+                        name="topping"
+                        value="habitAchieved"
+                        checked={isChecked}
+                        onChange={handleOnChange}
+                    />
+                    Check if you completed your habit today
+                </div>
+                <div className="result">
+                    Above checkbox is {isChecked ? "True" : "False"}.
+                </div>
+
+                <button className="btn col-12 col-md-3" type="submit" onClick={() => setCount(count + 1)}>
+                    Submit
+                </button>
+            </form>
+
+            {error && <div>Something went wrong...</div>}
+        </div >
+    );
+};
+
+export default DayForm;
