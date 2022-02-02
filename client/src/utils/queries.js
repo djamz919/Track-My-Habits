@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+
+//this is getting all habits. try to just get username habits
 export const QUERY_HABITS = gql `
 query habits($username: String) {
   habits(username: $username) {

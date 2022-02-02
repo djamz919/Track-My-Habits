@@ -1,14 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
 const Footer = () => {
     return (
-      <footer className="w-100 mt-auto bg-secondary p-4">
-        <div>
-            
+        <div className="footer">
+            &copy; 2022 21DAYS
         </div>
-      </footer>
     );
-  };
+}
 
 export default Footer;

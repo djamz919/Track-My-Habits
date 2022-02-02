@@ -33,6 +33,11 @@ mutation addHabit($habitText: String!) {
     habitText
     username
     createdAt
+    habitComplete
+    daysCount
+    days {
+      _id
+    }
   }
 }
 `;

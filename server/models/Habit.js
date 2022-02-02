@@ -21,8 +21,8 @@ const habitSchema = new Schema(
       },
       habitComplete: {
         type: Boolean,
-        default: false,
-        required: true
+        default: false
+        
       },
       days: [daySchema] 
       

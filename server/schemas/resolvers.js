@@ -16,20 +16,20 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     users: async (context) => {
-      console.log(context)
+      
       return User.find().select('-__v -password').populate('habits');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-      .select('-__v -password').populate('habits');
-      
+        .select('-__v -password').populate('habits');
+
     },
     habits: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Habit.find(params);
     },
-    habit: async (parent, {_id}) => {
-      return Habit.findOne({ _id: id})
+    habit: async (parent, { _id }) => {
+      return Habit.findOne({ _id: id })
     }
   },
   Mutation: {
@@ -70,17 +70,23 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addDay: async (parent, {habitId, completion, log, day}, context) => {
-     if(context.user) {
-      const newDay = await Habit.findOneAndUpdate(
-        {_id: habitId},
-        {$push: {days: {completion, log, day}} },
-        {new: true}
-      );
-      // if habit.day.length === 21
-      return newDay
-    }
-    throw new AuthenticationError('You need to be logged in!');
+    addDay: async (parent, { habitId, status, log, day }, context) => {
+      if (context.user) {
+        const newDay = await Habit.findOneAndUpdate(
+          { _id: habitId },
+          { $push: { days: { status, log, day } } },
+          { new: true }
+        );
+        // if habit.day.length === 21
+        return newDay
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    deleteUser: async (parent, { userId }, context) => {
+      return User.findOneAndDelete({ _id: userId });
+    },
+    deleteHabit: async(parent, { habitId }, context) => {
+      return Habit.findOneAndDelete({ _id: habitId });
     }
   }
 };

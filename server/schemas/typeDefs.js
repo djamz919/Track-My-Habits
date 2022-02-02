@@ -45,6 +45,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addHabit(habitText: String!): Habit
     addDay(day: Int!, status: Boolean!, log: String, habitId: ID!): Habit
+    deleteUser(userId: ID): User
+    deleteHabit(habitId: ID): Habit
   }
 `;
 

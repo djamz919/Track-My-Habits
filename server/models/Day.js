@@ -3,13 +3,11 @@ const { Schema } = require('mongoose');
 const daySchema = new Schema(
     {
         day: {
-            type: Number,
-            required: true,
-            max: 21
+            type: Number
         },
         status: {
             type: Boolean,
-            reqiured: true
+            default: false
         },
         log: {
             type: String

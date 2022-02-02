@@ -1,16 +1,28 @@
 import React from 'react';
-import { ADD_DAY } from '../../utils/mutations';
 
-const Day = (props) => {
+const Day = ({ days, habit }) => {
+    if (!days.length) {
+        return <h3>No Logs Yet</h3>;
+    }
+
     return (
-        <div id={'day' + props.habitDay} className='day'>
-            <h4 className='habit-day'>Day: {props.habitDay}</h4>
-            <h5 className='habit-question'>Did you meet your goal today?</h5>
-            <div className='answer-buttons'>
-                <button className='yes'>Yes</button>
-                <button className='no'>No</button>
-            </div>
+        <div className='tracked-days'>
+            {days && days.map(day => (
+                <div key={day._id} className='day'>
+                    <div className='day-card'>
+                        <h4 className='habit-day'>Day {day.day}</h4>
+                    </div>
+                    <div className='day-content'>
+                        {day.status && (<p className='habit-question'>Congrats! You did it!</p>)}
+                        {!day.status && (<p className='habit-question'>Oh no! You can try again tomorrow!</p>)}
+                        {day.log && (<p className='habit-log'>Log: <span className='logText'>{day.log} </span></p>)}
+                    </div>
+
+                </div>
+            ))}
+
         </div>
+
     )
 }
 

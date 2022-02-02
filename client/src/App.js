@@ -9,8 +9,6 @@ import {
 }
   from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
-
 import Header from './components/Header';
 import Footer from './components/Footer';
 // import { useQuery } from '@apollo/client';
@@ -42,16 +40,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className='flex-column justify-flex-start min-100-vh'>
+        <div className='big-height justify-flex-start'>
           <Header />
-          <div className='container'>
             <Routes>
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
               <Route path='/' element={<Dashboard />} />
             </Routes>
-          </div>
-          <Footer />
+            <Footer />
         </div>
       </Router>
     </ApolloProvider>

@@ -34,10 +34,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-//Followed instructions in module 21.3.6 to add these. ^
-//Currently cause an error on my local machine (Jeff) reading: "[0] Error: ENOENT: no such file or directory, stat 'C:\Users\jboni\OneDrive\Documents\GitHub\Track-My-Habits\client\build\index.html'"
-//Will leave commented out until further notice.
-
 db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
