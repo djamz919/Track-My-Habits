@@ -50,9 +50,9 @@ function App() {
               <Route path='/' element={<Dashboard />} />
             </Routes>
           </div>
+          <Footer />
         </div>
       </Router>
-      <Footer/>
     </ApolloProvider>
   );
 }
