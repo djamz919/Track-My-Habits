@@ -48,7 +48,7 @@ const DayForm = ({ habitId, daysCount }) => {
     };
 
     return (
-        <div classname='day-form'>
+        <div className='day-form'>
             {count >= 21 && (
                 <div>
                     <h4 className="congrats">Congrats! You've tracked your habit for 21 days!</h4>

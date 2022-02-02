@@ -38,6 +38,7 @@ const Signup = (props) => {
     <main className="animate">
       <div className="page-stuff">
         <div className="card">
+        <div className="card-body">
           <h4>Sign Up</h4>
           <form onSubmit={handleFormSubmit}>
             <input
@@ -72,8 +73,16 @@ const Signup = (props) => {
             </button>
           </form>
           {error && <p className='warning'>Sign up failed</p>}
+          <div>
+              <h5 className='login-stuff'>"Rigid, the skeleton of habit alone upholds the human frame"</h5>
+              <p className='signup-link'>- Virginia Woolf</p>
+            </div>
+          </div>
+          </div>
         </div>
-      </div>
+    
+      
+      
     </main>
   );
 };
