@@ -10,7 +10,7 @@ import Signup from './Signup';
 
 const Dashboard = () => {
     const { data: userData } = useQuery(QUERY_ME);
-    const habitInfo = userData?.me.habits || []; 
+    const habitInfo = userData?.me.habits || [];
 
     const [habitText, setHabitText] = useState('');
 
@@ -53,7 +53,15 @@ const Dashboard = () => {
                         <div className='dashboard'>
                             <div>
                                 <section className='user-habit' >
-                                    <HabitTracker habits={habitInfo} />
+                                    {habitInfo.map(habit => (
+                                        <HabitTracker
+                                            id={habit._id}
+                                            habitText = {habit.habitText}
+                                            createdAt = {habit.createdAt}
+                                            daysCount = {habit.daysCount}
+                                            days = {habit.days}
+                                        />
+                                    ))}
                                 </section>
                             </div>
                         </div>)}
