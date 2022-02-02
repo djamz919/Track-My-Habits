@@ -10,7 +10,7 @@ import Signup from './Signup';
 
 const Dashboard = () => {
     const { data: userData } = useQuery(QUERY_ME);
-    const habitInfo = userData?.me.habits || [];
+    const habitInfo = userData?.me.habits || []; 
 
     const [habitText, setHabitText] = useState('');
 
@@ -53,15 +53,7 @@ const Dashboard = () => {
                         <div className='dashboard'>
                             <div>
                                 <section className='user-habit' >
-                                    {habitInfo.map(habit => (
-                                        <HabitTracker
-                                            id={habit._id}
-                                            habitText = {habit.habitText}
-                                            createdAt = {habit.createdAt}
-                                            daysCount = {habit.daysCount}
-                                            days = {habit.days}
-                                        />
-                                    ))}
+                                    <HabitTracker habits={habitInfo} />
                                 </section>
                             </div>
                         </div>)}
@@ -95,13 +87,13 @@ const Dashboard = () => {
                     <div className='dashboard animate'>
                         <section className='greeting-message'>
                             <div>
-                                <h2>Welcome To 21 Days!</h2>
-                                <p className='greeting-paragraph'>
+                                <h2 className='welcome'>Welcome To 21 Days!</h2>
+                                <div className='greeting-paragraph'>
                                     21 Days is an app with a simple premise: guiding you along a journey of 21 days to help you form or break a habit.
                                     Whether your goal is to exercise more, stop smoking, or learn a new skill,
                                     this app gives you the tools to hold yourself accountable for those crucial first 21 days.
                                     <p className='page-stuff'>Create your account now to start building a habit that could last a lifetime.</p>
-                                </p>
+                                </div>
                             </div>
                         </section>
                     </div>
