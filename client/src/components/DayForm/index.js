@@ -17,6 +17,8 @@ const DayForm = ({ habitId, daysCount }) => {
         setIsChecked(!isChecked);
     };
 
+    const dayDisplay = count + 1;
+
     const [addDay, { error }] = useMutation(ADD_DAY);
 
     // update state based on form input changes
@@ -48,7 +50,7 @@ const DayForm = ({ habitId, daysCount }) => {
     };
 
     return (
-        <div classname='day-form'>
+        <div className='day-form'>
             {count >= 21 && (
                 <div>
                     <h4 className="congrats">Congrats! You've tracked your habit for 21 days!</h4>
@@ -59,7 +61,7 @@ const DayForm = ({ habitId, daysCount }) => {
                 onSubmit={handleFormSubmit}
             >
                 <h3>
-                    Track your daily progress:
+                    Track your progress for Day {dayDisplay}:
                 </h3>
                 <textarea
                     className="form-input"
@@ -78,7 +80,7 @@ const DayForm = ({ habitId, daysCount }) => {
                         checked={isChecked}
                         onChange={handleOnChange}
                     />
-                    Check if you did it!
+                    <span className="checkbox">Check if you did it!</span>
                 </div>
                 <button className="button" type="submit" onClick={() => setCount(count + 1)}>
                     Submit
