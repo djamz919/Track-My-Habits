@@ -1,9 +1,6 @@
 import React from 'react';
 
 const Day = ({ days, habit }) => {
-    if (!days.length) {
-        return <h3>No Logs Yet</h3>;
-    }
 
     return (
         <div className='tracked-days'>

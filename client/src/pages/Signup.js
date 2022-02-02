@@ -35,7 +35,7 @@ const Signup = (props) => {
     }
   };
   return (
-    <main className="dashboard animate">
+    <main className="animate">
       <div className="page-stuff">
         <div className="card">
           <h4>Sign Up</h4>
