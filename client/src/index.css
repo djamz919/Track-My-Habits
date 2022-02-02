@@ -14,10 +14,23 @@
 * {
   box-sizing: border-box;
   margin: 0%;
-  
+
   
 }
-
+body{
+  background-color: #9dbebb;
+  background-image: url("../../misc/5547146.jpg");
+    height: 600px; 
+  background-size: cover;
+  background-position: center;
+  animation: slide 10s infinite;
+   
+}
+@keyframes slide{
+  5%{background-image: url(../../misc/5547146.jpg);}
+  33%{background-image: url(../../misc/e5497477652160c14f8aa7c9b961be9c.jpg);}
+   67%{background-image: url(../../misc/rod-long-355994-unsplash-1-1920x1080.jpg);}
+}
 a {
   color: var(--iron);
   text-decoration: none;
@@ -47,7 +60,7 @@ body {
   justify-content: space-evenly;
   color: var(--black);
  
-  background-color:rgba(0, 139, 139, 0.681);
+  background-color:rgba(0, 139, 139, 0.838);
   border-bottom: 1px solid black;
   width: 100%;
   padding: 2%;
