@@ -14,15 +14,14 @@
 * {
   box-sizing: border-box;
   margin: 0%;
-
-  
 }
-body{
+
+.animate {
   background-color: #9dbebb;
   background-image: url("../../misc/5547146.jpg");
-    height: 600px; 
+  min-height: 1200px; 
   background-size: cover;
-  background-position: center;
+  background-position: center;  
   animation: slide 10s infinite;
    
 }
@@ -39,7 +38,7 @@ a {
   justify-content: center;
 }
 
-a:hover {
+header a:hover {
   color: var(--sand);
 }
 
@@ -64,6 +63,12 @@ body {
   border-bottom: 1px solid black;
   width: 100%;
   
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
 }
 
 .greeting-message {
@@ -110,9 +115,12 @@ body {
     width: 100%;
   }
 }
-.habit-calendar{
-  
+
+main {
+  height: 800px;
+  overflow: auto;
 }
+
 .header-options {
   display: flex;
   flex-direction: row;
@@ -126,9 +134,6 @@ body {
 }
 
 .footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
  padding: 1%;
  background-color: var(--lighter-blue);
@@ -190,19 +195,21 @@ text-decoration:none;
 text-transform:uppercase;
 font-family: 'Inconsolata', monospace;
 font-weight:400;
-color: var(--black);
-background-color: var(--blue);
+color: black;
 box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
 text-align:center;
 position:relative;
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
+border: none;
+outline: none;
+background-color: salmon;
 }
 
 .button:hover, .habit-button:hover {
-  background-color: var(--dark-blue);
-  color: var(--gray);
+  background-color: pink;
+  color: var(--black);
 }
 
 .button-div {
@@ -226,6 +233,7 @@ margin-left: 50px;
   font-weight: bold;
   padding:3%;
 }
+
 .login-stuff{
   display: flex;
   justify-content: center;
@@ -234,6 +242,7 @@ margin-left: 50px;
   padding:3%;
   text-align: center;
 }
+
 .signup-link{
   display: flex;
   justify-content: center;
@@ -244,13 +253,23 @@ margin-left: 50px;
 
 .habit-card {
   border-radius: 5px;
-  padding: 15px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  border: 2px solid black;
   color: var(--black);
   
+}
+
+.justify-flex-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.big-height {
+  min-height: 800px;
 }
 
 .habit-options {
@@ -259,14 +278,21 @@ margin-left: 50px;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-right: 25%;
-  margin-left: 25%;
-  margin-top: 1%;
+  width: 100%;
   padding: 25px;
-  border-radius: 25px;
+
   background-color: var(--sand);
   
 }
+
+.congrats {
+  text-transform: uppercase;
+  margin: 10px 0;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow: 2px 2px var(--crimson);
+}
+
 .something {
  
   margin: 2%;
@@ -281,10 +307,7 @@ margin-left: 50px;
   
 }
 .day {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end; */
+  width: 100%;
   box-sizing: border-box;
   border: 1px solid black;
   margin: 5px auto 0 auto;;
@@ -316,10 +339,16 @@ margin-left: 50px;
   font-weight: lighter;
 }
 
+.warning{
+  font-size: small;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+
 @media (min-width:1440px) {
   .tracked-days {
     display: grid;
-    /* we may need to lower the repeat number...spills off the page for me(Dan) */
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 250px 250px 250px;
     gap: 20px;
@@ -340,9 +369,38 @@ margin-left: 50px;
   }
 }
 
+@media (max-width:680px) {
+  .tracked-days {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 250px);
+    gap: 20px;
+    row-gap: 50px;
+    grid-auto-flow: row;
+    margin: 50px;
+  }
+}
 
 .answer-buttons {
   display: flex;
   justify-content: space-around;
   width: 100%;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
+
+.add-day-form {
+  border: 2px solid var(--lighter-blue);
+  background-color: #f2f2f2;
 }

@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 import Signup from './Signup';
 
-
 const Dashboard = () => {
     // const { loading, data } = useQuery(QUERY_HABITS); //Pulls all habits in the database instead of just 
     const { data: userData } = useQuery(QUERY_ME);
@@ -50,52 +49,57 @@ const Dashboard = () => {
     }
 
     return (
-        <main className='dashboard'>
+        <main>
             {Auth.loggedIn() ? (
                 <>
                     {habitInfo.length > 0 && (
-                        <div>
-                            <section className='user-habit' >
-                                <HabitTracker habits={habitInfo} />
-                            </section>
+                        <div className='dashboard'>
+                            <div>
+                                <section className='user-habit' >
+                                    <HabitTracker habits={habitInfo} />
+                                </section>
+                            </div>
                         </div>)}
 
-                    {habitInfo.length === 0 && (<div className='card-body'>
-                        <h4 className='wrong'>You don't have any habits yet!</h4>
-                        <form onSubmit={handleFormSubmit}>
-                            <input
-                                className="form-input"
-                                placeholder="Enter your new habit here!"
-                                name="habit"
-                                type="habit"
-                                id="habit"
-                                value={habitText}
-                                onChange={handleChange}
-                            />
-                            <button className="button" type="submit">
-                                Get Started!
-                            </button>
-                        </form>
+                    {habitInfo.length === 0 && (
+                        <div className='dashboard'>
+                            <div className='card-body'>
+                                <h4 className='wrong'>You don't have any habits yet!</h4>
+                                <form onSubmit={handleFormSubmit}>
+                                    <input
+                                        className="form-input"
+                                        placeholder="Enter your new habit here!"
+                                        name="habit"
+                                        type="habit"
+                                        id="habit"
+                                        value={habitText}
+                                        onChange={handleChange}
+                                    />
+                                    <button className="button" type="submit">
+                                        Get Started!
+                                    </button>
+                                </form>
 
-                        {/* {error && <div>Error</div>} */}
-                    </div>
+                                {/* {error && <div>Error</div>} */}
+                            </div>
+                        </div>
                     )}
                 </>
             ) : (
                 <>
-                    
-                    <section className='greeting-message'>
-                        <div>
-                            <h2>Welcome To 21 Days!</h2>
-                            <p className='greeting-paragraph'>
-                                21 Days is an app with a simple premise - It takes 21 days to build (or break) a habit.
-                                Whether your goal is to exercise more, stop smoking, or learn a new skill,
-                                this app gives you the tools to hold yourself accountable for those crucial first 21 days.
-                                Create your account now to start building a habit that could last a lifetime.
-                            </p>
-                        </div>
-                    </section>
-                    <p className='page-stuff'>Log in to start tracking your habits!</p>
+                    <div className='dashboard animate'>
+                        <section className='greeting-message'>
+                            <div>
+                                <h2>Welcome To 21 Days!</h2>
+                                <p className='greeting-paragraph'>
+                                    21 Days is an app with a simple premise: guiding you along a journey of 21 days to help you form or break a habit.
+                                    Whether your goal is to exercise more, stop smoking, or learn a new skill,
+                                    this app gives you the tools to hold yourself accountable for those crucial first 21 days.
+                                    <p className='page-stuff'>Create your account now to start building a habit that could last a lifetime.</p>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
                 </>
             )}
         </main>

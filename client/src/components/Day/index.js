@@ -13,8 +13,8 @@ const Day = ({ days, habit }) => {
                         <h4 className='habit-day'>Day {day.day}</h4>
                     </div>
                     <div className='day-content'>
-                        {day.status && (<p className='habit-question'>Congrats! You did your habit!</p>)}
-                        {!day.status && (<p className='habit-question'>Oh no! You didn't do your habit!</p>)}
+                        {day.status && (<p className='habit-question'>Congrats! You did it!</p>)}
+                        {!day.status && (<p className='habit-question'>Oh no! You can try again tomorrow!</p>)}
                         {day.log && (<p className='habit-log'>Log: <span className='logText'>{day.log} </span></p>)}
                     </div>
 

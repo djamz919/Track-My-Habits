@@ -3,8 +3,7 @@ const { Schema } = require('mongoose');
 const daySchema = new Schema(
     {
         day: {
-            type: Number,
-            max: 21
+            type: Number
         },
         status: {
             type: Boolean,

@@ -45,7 +45,7 @@ const Login = (props) => {
   };
 
   return (
-    <main>
+    <main className="dashboard animate">
       <div className='page-stuff'>
         <div className="card">
           <div className="card-body">
@@ -69,13 +69,11 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="button" type="submit"
-              // onClick={() => {navigate("/dashboard")}}
-              >
+              <button className="button" type="submit">
                 Submit
               </button>
             </form>
-            {error && <div>Login failed</div>}
+            {error && <p className='warning'>Login failed</p>}
             <div>
               <h5 className='login-stuff'>Don't have an account?</h5>
               <Link className='signup-link' to='/signup'>Create One Here!</Link>

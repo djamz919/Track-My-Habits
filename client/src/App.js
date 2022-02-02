@@ -40,17 +40,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className='flex-column justify-flex-start min-100-vh'>
+        <div className='big-height justify-flex-start'>
           <Header />
-
-          <div className='container'>
             <Routes>
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
               <Route path='/' element={<Dashboard />} />
             </Routes>
-          </div>
-          <Footer />
+            <Footer />
         </div>
       </Router>
     </ApolloProvider>

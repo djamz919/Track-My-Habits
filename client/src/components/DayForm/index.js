@@ -49,13 +49,21 @@ const DayForm = ({ habitId, daysCount }) => {
 
     return (
         <div>
+            {count >= 21 && (
+                <div>
+                    <h4 className="congrats">Congrats! You've tracked your habit for 21 days!</h4>
+                </div>
+            )}
             <form
-                className="flex-row justify-center justify-space-between-md align-stretch"
+                className="add-day-form flex-row justify-center justify-space-between-md align-stretch"
                 onSubmit={handleFormSubmit}
             >
-                <input
+                <h3>
+                    Track your daily progress:
+                </h3>
+                <textarea
                     className="form-input"
-                    placeholder="Enter a log"
+                    placeholder="Share your thoughts..."
                     name="log"
                     type="log"
                     id="log"
@@ -70,11 +78,11 @@ const DayForm = ({ habitId, daysCount }) => {
                         checked={isChecked}
                         onChange={handleOnChange}
                     />
-                    Check if you completed your habit today
+                    Check if you did it!
                 </div>
-                    <button className="button" type="submit" onClick={() => setCount(count + 1)}>
-                        Submit
-                    </button>
+                <button className="button" type="submit" onClick={() => setCount(count + 1)}>
+                    Submit
+                </button>
 
             </form>
 
