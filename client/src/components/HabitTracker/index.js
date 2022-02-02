@@ -15,7 +15,12 @@ const HabitTracker = ({ habits }) => {
 
                         </div>
                     </div>
-                    {habit.daysCount < 21 && (<DayForm habitId={habit._id} daysCount={habit.daysCount}></DayForm>)}
+                    <DayForm habitId={habit._id} daysCount={habit.daysCount}></DayForm>
+                    {habit.daysCount >= 21 && (
+                        <div>
+                            <h4>Congrats! You've tracked your habit for 21 days!</h4>
+                        </div>
+                    )}
                     <div className='habit-calendar'>
                             <Day days={habit.days} habit={habit.habitText}></Day>
                     </div>

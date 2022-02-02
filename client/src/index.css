@@ -1,7 +1,7 @@
 :root {
   --gray: #CCCCCC;
   --black: #000000;
-  --blue: #59A5D8;
+  --blue: ##468189;
   --dark-blue: #133C55;
   --sand: #f4e9cdd4 ;
   --lighter-blue: #9dbebb;
@@ -21,13 +21,13 @@
 a {
   color: var(--iron);
   text-decoration: none;
-  font-weight: bold;
+  font-size: x-large;
   display: flex;
   justify-content: center;
 }
 
 a:hover {
-  color: var(--blue);
+  color: var(--sand);
 }
 
 .greeting-link {
@@ -44,13 +44,12 @@ body {
   font-size: 30px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   color: var(--black);
  
   background-color:rgba(0, 139, 139, 0.681);
   border-bottom: 1px solid black;
   width: 100%;
-  padding: 2%;
   
 }
 
@@ -89,8 +88,7 @@ body {
   .header {
     font-size: 30px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-content: center;
     align-items: center;
     color: var(--black);
@@ -106,11 +104,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-content: flex-end;
-  align-items: flex-end;
-  padding-bottom: 2%;
-  width: 35%;
+  align-items: center;
+  padding-right: 10px;
 }
+
+.header-options a {
+  padding: 0 20px;
+}
+
 .footer{
   position: fixed;
   left: 0;
@@ -124,11 +125,10 @@ body {
 @media (max-width:1023px) {
   .header-options {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-content: center;
     align-items: flex-end;
-    width: 35%;
   }
 }
 
@@ -136,6 +136,11 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-left: 15%;
+}
+
+.header-title:hover {
+  color: var(--sand);
 }
 
 .card-body {
@@ -270,12 +275,22 @@ margin-left: 50px;
   box-sizing: border-box;
   border: 1px solid black;
   margin: 5px auto 0 auto;;
-  padding: 10%;
   height: 100%;
-  padding: -1rem
+  box-shadow: 10px 10px var(--lighter-blue);
 }
+
+.day-content {
+  padding: 10%;
+}
+
+.day-card {
+  padding: 15px 0;
+  background-color: var(--dark-blue);
+}
+
 .habit-day {
   text-align: center;
+  color: white;
 }
 .habit-log {
   text-align: center;
@@ -288,26 +303,26 @@ margin-left: 50px;
   font-weight: lighter;
 }
 
-@media (min-width:1024px) {
+@media (min-width:1440px) {
   .tracked-days {
     display: grid;
     /* we may need to lower the repeat number...spills off the page for me(Dan) */
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 250px 250px 250px;
     gap: 20px;
-    row-gap: 100px;
+    row-gap: 50px;
     margin: 50px;
   }
 }
 
-@media (max-width:1023px) {
+@media (max-width:1440px) {
   .tracked-days {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(7, 250px);
+    grid-template-rows: repeat(3, 250px);
     gap: 20px;
-    row-gap: 100px;
-    grid-auto-flow: column;
+    row-gap: 50px;
+    grid-auto-flow: row;
     margin: 50px;
   }
 }
