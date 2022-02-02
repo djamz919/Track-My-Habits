@@ -43,7 +43,6 @@ const Login = (props) => {
       password: '',
     });
   };
-
   return (
     <main className="dashboard animate">
       <div className='page-stuff'>

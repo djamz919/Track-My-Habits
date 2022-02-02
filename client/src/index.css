@@ -26,9 +26,9 @@
    
 }
 @keyframes slide{
-  5%{background-image: url(../../misc/5547146.jpg);}
+  0%{background-image: url(../../misc/5547146.jpg);}
   33%{background-image: url(../../misc/e5497477652160c14f8aa7c9b961be9c.jpg);}
-   67%{background-image: url(../../misc/rod-long-355994-unsplash-1-1920x1080.jpg);}
+  67%{background-image: url(../../misc/photography.jpg);}
 }
 a {
   color: var(--iron);
@@ -280,7 +280,7 @@ margin-left: 50px;
   text-align: center;
   width: 100%;
   padding: 25px;
-
+  margin-bottom: 20px;
   background-color: var(--sand);
   
 }
@@ -403,4 +403,9 @@ margin-left: 50px;
 .add-day-form {
   border: 2px solid var(--lighter-blue);
   background-color: #f2f2f2;
+  width: 100%;
+}
+
+.day-form {
+  width: 40%;
 }

@@ -9,9 +9,8 @@ import Login from './Login';
 import Signup from './Signup';
 
 const Dashboard = () => {
-    // const { loading, data } = useQuery(QUERY_HABITS); //Pulls all habits in the database instead of just 
     const { data: userData } = useQuery(QUERY_ME);
-    const habitInfo = userData?.me.habits || []; // seed a user to prevent this from erroring when no users
+    const habitInfo = userData?.me.habits || []; 
 
     const [habitText, setHabitText] = useState('');
 
@@ -36,8 +35,6 @@ const Dashboard = () => {
     const handleFormSubmit = async event => {
         event.preventDefault();
 
-        //   console.log(habitInfo);
-        // console.log(userData);
         try {
             await addHabit({
                 variables: { habitText }
