@@ -26,9 +26,9 @@
    
 }
 @keyframes slide{
-  5%{background-image: url(../../misc/5547146.jpg);}
+  0%{background-image: url(../../misc/5547146.jpg);}
   33%{background-image: url(../../misc/e5497477652160c14f8aa7c9b961be9c.jpg);}
-   67%{background-image: url(../../misc/rod-long-355994-unsplash-1-1920x1080.jpg);}
+  67%{background-image: url(../../misc/photography.jpg);}
 }
 a {
   color: var(--iron);
